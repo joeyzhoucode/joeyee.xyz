@@ -5,7 +5,7 @@
   "keywords": [
     "rails",
     "react",
-    "boilerplate"
+    "joeyee.xyz"
   ],
   "scripts": {
     "postdeploy": "bundle exec rake db:seed"

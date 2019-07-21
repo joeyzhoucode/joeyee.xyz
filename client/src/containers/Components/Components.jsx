@@ -42,7 +42,7 @@ class Components extends React.Component {
     return (
       <div>
         <Header
-          brand="Boilerplate"
+          brand="joeyee.xyz"
           rightLinks={<HeaderLinks/>}
           fixed
           color="transparent"
@@ -57,9 +57,9 @@ class Components extends React.Component {
             <GridContainer>
               <GridItem>
                 <div className={classes.brand}>
-                  <h1 className={classes.title}>Boilerplate.</h1>
+                  <h1 className={classes.title}>joeyee.xyz</h1>
                   <h3 className={classes.subtitle}>
-                    A boilerplate that just works.
+                    A gateway that just works.
                   </h3>
                 </div>
               </GridItem>

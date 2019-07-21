@@ -52,7 +52,7 @@ Rails.application.configure do
 
   # Use a real queuing backend for Active Job (and separate queues per environment)
   # config.active_job.queue_adapter     = :resque
-  # config.active_job.queue_name_prefix = "boilerplate_#{Rails.env}"
+  # config.active_job.queue_name_prefix = "joeyee_#{Rails.env}"
 
   config.action_mailer.perform_caching = false
 
@@ -83,6 +83,6 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.web_socket_server_url = "wss://boilerplate.xyz/cable"
-  config.action_cable.allowed_request_origins = ['https://boilerplate.xyz', 'http://boilerplate.xyz']
+  config.web_socket_server_url = "wss://joeyee.xyz/cable"
+  config.action_cable.allowed_request_origins = ['https://joeyee.xyz', 'http://joeyee.xyz']
 end

@@ -6,5 +6,5 @@ test:
 
 production:
   adapter: redis
-  url: redis://redistogo:1de0a3d779a997d5c9f2b76df12635a0@tarpon.redistogo.com:10676/
-  channel_prefix: boilerplate_production
+  url: redis://redistogo:26c1ce65e44bb274130f27cc06b7a30c@hammerjaw.redistogo.com:10629/
+  channel_prefix: joeyee_production

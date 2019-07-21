@@ -52,7 +52,7 @@ class ProfilePage extends React.Component {
       <div>
         <Header
           color="transparent"
-          brand="Boilerplate"
+          brand="joeyee.xyz"
           rightLinks={<HeaderLinks/>}
           fixed
           changeColorOnScroll={{

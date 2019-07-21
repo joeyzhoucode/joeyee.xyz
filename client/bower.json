@@ -1,10 +1,10 @@
 {
-  "name": "boilerplate-client",
-  "homepage": "https://github.com/joeyzhoucode/boilerplate",
+  "name": "joeyee-web",
+  "homepage": "https://github.com/joeyzhoucode/joeyee.xyz",
   "authors": [
     "joeyzhoucode"
   ],
-  "description": "Boilerplate Client based on Material Design",
+  "description": "joeyee.xyz client based on Material Design",
   "main": "public/index.html",
   "ignore": [
     "**/.*",

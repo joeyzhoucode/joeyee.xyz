@@ -54,7 +54,7 @@ class LoginPage extends React.Component {
         <Header
           absolute
           color="transparent"
-          brand="Boilerplate"
+          brand="joeyee.xyz"
           rightLinks={<HeaderLinks/>}
           {...rest}
         />
