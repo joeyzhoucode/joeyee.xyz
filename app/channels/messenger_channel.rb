@@ -10,8 +10,8 @@ class MessengerChannel < ApplicationCable::Channel
   end
 
   def broadcast(data)
+    user = current_user
     group_name = data['group_name']
-    user = get_user(data['user_id'])
     content = data['content']
 
     raise 'No group_name!' if group_name.blank?
@@ -29,10 +29,6 @@ class MessengerChannel < ApplicationCable::Channel
   end
 
   private
-
-  def get_user(id)
-    User.find_by(id: id)
-  end
 
   def get_group(name)
     Group.find_by(name: name)
