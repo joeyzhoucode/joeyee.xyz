@@ -71,3 +71,11 @@ production:
   url: # REDISTOGO_URL
   channel_prefix: joeyee_production
 ```
+
+## Inspirations
+- jackschaedler.github.io
+- bobbydreamer.com
+- jefflombard.com
+- worrydream.com
+- ncase.me
+- michaelfogleman.com
