@@ -57,9 +57,9 @@ class Components extends React.Component {
             <GridContainer>
               <GridItem>
                 <div className={classes.brand}>
-                  <h1 className={classes.title}>joeyee.xyz</h1>
+                  <h1 className={classes.title}>Projects</h1>
                   <h3 className={classes.subtitle}>
-                    A gateway that just works.
+                    Things I've been doing.
                   </h3>
                 </div>
               </GridItem>

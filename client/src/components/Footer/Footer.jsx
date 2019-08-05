@@ -50,7 +50,7 @@ function Footer({ ...props }) {
             className={aClasses}
             target="_blank"
           >
-            Yi Zhou
+            Joey Zhou
           </a>
         </div>
       </div>

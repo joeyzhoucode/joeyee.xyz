@@ -16,7 +16,7 @@ const profilePageStyle = {
   description: {
     margin: "1.071rem auto 0",
     maxWidth: "600px",
-    color: "#999",
+    color: "#bdbdbd",
     textAlign: "center !important"
   },
   name: {
@@ -24,7 +24,7 @@ const profilePageStyle = {
   },
   ...imagesStyle,
   main: {
-    background: "#FFFFFF",
+    background: "#272727",
     position: "relative",
     zIndex: "3"
   },
@@ -51,7 +51,7 @@ const profilePageStyle = {
     height: "100%",
     lineHeight: "41px",
     fontSize: "20px",
-    color: "#999"
+    color: "#bdbdbd"
   },
   navWrapper: {
     margin: "20px auto 50px auto",

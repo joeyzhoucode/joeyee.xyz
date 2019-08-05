@@ -15,7 +15,7 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 
 // @material-ui/icons
-import { Home, Person, Fingerprint, Extension, Apps } from "@material-ui/icons";
+import { Home, Person, Dashboard, Apps, Extension } from "@material-ui/icons";
 
 // core components
 import CustomDropdown from "components/CustomDropdown/CustomDropdown.jsx";
@@ -45,17 +45,7 @@ class HeaderLinks extends React.Component {
             className={classes.navLink}
             onClick={() => { this.props.globalActions.historyPush('/profile'); }}
           >
-            <Person className={classes.icons} /> Profile
-          </Button>
-        </ListItem>
-        <ListItem className={classes.listItem}>
-          <Button
-            color="transparent"
-            target="_blank"
-            className={classes.navLink}
-            onClick={() => { this.props.globalActions.historyPush('/login'); }}
-          >
-            <Fingerprint className={classes.icons} /> Login
+            <Person className={classes.icons} /> About Me
           </Button>
         </ListItem>
         <ListItem className={classes.listItem}>
@@ -65,13 +55,13 @@ class HeaderLinks extends React.Component {
             className={classes.navLink}
             onClick={() => { this.props.globalActions.historyPush('/components'); }}
           >
-            <Extension className={classes.icons} /> Examples
+            <Dashboard className={classes.icons} /> Projects
           </Button>
         </ListItem>
         <ListItem className={classes.listItem}>
           <CustomDropdown
             noLiPadding
-            buttonText="Applications"
+            buttonText="Quick Access"
             buttonProps={{
               className: classes.navLink,
               color: "transparent"

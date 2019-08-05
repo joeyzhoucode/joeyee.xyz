@@ -57,7 +57,7 @@ class ProfilePage extends React.Component {
           fixed
           changeColorOnScroll={{
             height: 200,
-            color: "white"
+            color: "dark"
           }}
           {...rest}
         />
@@ -72,29 +72,40 @@ class ProfilePage extends React.Component {
                       <img src={profile} alt="..." className={imageClasses} />
                     </div>
                     <div className={classes.name}>
-                      <h3 className={classes.title}>Yi Zhou</h3>
-                      <h6>DEVELOPER</h6>
-                      <Button justIcon link className={classes.margin5}>
-                        <i className={"fab fa-twitter"} />
+                      <h3 className={classes.title}>Joey Zhou</h3>
+                      <h6>Software Developer</h6>
+                      <Button
+                        justIcon 
+                        link
+                        className={classes.margin5} 
+                        href="https://github.com/joeyzhoucode"
+                      >
+                        <i className={"fab fa-github"} />
                       </Button>
-                      <Button justIcon link className={classes.margin5}>
-                        <i className={"fab fa-instagram"} />
-                      </Button>
-                      <Button justIcon link className={classes.margin5}>
-                        <i className={"fab fa-facebook"} />
+                      <Button
+                        justIcon
+                        link
+                        className={classes.margin5}
+                        href="https://linkedin.com/in/joeyzhoucode"
+                      >
+                        <i className={"fab fa-linkedin"} />
                       </Button>
                     </div>
                   </div>
                 </GridItem>
               </GridContainer>
-              <div className={classes.description}>
-                <p>
-                  An artist of considerable range, Chet Faker — the name taken
-                  by Melbourne-raised, Brooklyn-based Nick Murphy — writes,
-                  performs and records all of his own music, giving it a warm,
-                  intimate feel with a solid groove structure.{" "}
-                </p>
-              </div>
+              <GridContainer justify="center">
+                <GridItem xs={12} sm={12} md={6}>
+                  <div className={classes.description}>
+                    <p>
+                      Hey there! My name is Joey Zhou and I am a senior year student at the
+                      University of Toronto studying Computer Engineering. Currently, I'm working
+                      at Shopify on the API patterns team, working on our API infrastructure.
+                      Before Shopify, I worked for a year as a fullstack developer at two other companies.
+                    </p>
+                  </div>
+                </GridItem>
+              </GridContainer>
               <GridContainer justify="center">
                 <GridItem xs={12} sm={12} md={8} className={classes.navWrapper}>
                   <NavPills
