@@ -36,7 +36,8 @@ const landingPageStyle = {
   },
   section: {
     padding: "70px 0",
-    textAlign: "center"
+    textAlign: "center",
+    overflow: "hidden !important"
   },
   description: {
     color: "#999",

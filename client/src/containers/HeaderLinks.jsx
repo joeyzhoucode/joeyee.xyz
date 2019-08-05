@@ -6,8 +6,6 @@ import * as globalActions from "actions/globalActions";
 import * as profileActions from "actions/profileActions";
 // nodejs library to set properties for components
 import PropTypes from "prop-types";
-// react components for routing our app without refresh
-import { Link } from "react-router-dom";
 
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
@@ -15,7 +13,7 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 
 // @material-ui/icons
-import { Home, Person, Dashboard, Apps, Extension } from "@material-ui/icons";
+import { Home, Person, Dashboard, Extension } from "@material-ui/icons";
 
 // core components
 import CustomDropdown from "components/CustomDropdown/CustomDropdown.jsx";
@@ -49,16 +47,6 @@ class HeaderLinks extends React.Component {
           </Button>
         </ListItem>
         <ListItem className={classes.listItem}>
-          <Button
-            color="transparent"
-            target="_blank"
-            className={classes.navLink}
-            onClick={() => { this.props.globalActions.historyPush('/components'); }}
-          >
-            <Dashboard className={classes.icons} /> Projects
-          </Button>
-        </ListItem>
-        <ListItem className={classes.listItem}>
           <CustomDropdown
             noLiPadding
             buttonText="Quick Access"
@@ -66,24 +54,20 @@ class HeaderLinks extends React.Component {
               className: classes.navLink,
               color: "transparent"
             }}
-            buttonIcon={Apps}
+            buttonIcon={Dashboard}
             dropdownList={[
-              <Link
-                to="landing"
-                target="_blank"
+              <div
+                className={classes.dropdownLink}
+                onClick={() => { this.props.globalActions.historyPush('/login'); }}
+              >
+                <Extension className={classes.icons} /> Login
+              </div>,
+              <div
                 className={classes.dropdownLink}
                 onClick={() => { this.props.globalActions.historyPush('/components'); }}
               >
-                <Extension className={classes.icons} /> App 1
-              </Link>,
-              <Link
-                to="landing"
-                target="_blank"
-                className={classes.dropdownLink}
-                onClick={() => { this.props.globalActions.historyPush('/components'); }}
-              >
-                <Extension className={classes.icons} /> App 2
-              </Link>,
+                <Extension className={classes.icons} /> Components
+              </div>,
             ]}
           />
         </ListItem>

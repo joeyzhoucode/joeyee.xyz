@@ -16,7 +16,6 @@ import Header from "components/Header/Header.jsx";
 import Footer from "components/Footer/Footer.jsx";
 import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
-import Button from "components/CustomButtons/Button.jsx";
 import Parallax from "components/Parallax/Parallax.jsx";
 
 // Product Section
@@ -25,10 +24,17 @@ import VerifiedUser from "@material-ui/icons/VerifiedUser";
 import Fingerprint from "@material-ui/icons/Fingerprint";
 import InfoArea from "components/InfoArea/InfoArea.jsx";
 
-// Work Section
-import CustomInput from "components/CustomInput/CustomInput.jsx";
-
 import landingPageStyle from "assets/jss/material-kit-react/containers/landingPage.jsx";
+
+// NavPills
+import Camera from "@material-ui/icons/Camera";
+import Palette from "@material-ui/icons/Palette";
+
+import NavPills from "components/NavPills/NavPills.jsx";
+import studio1 from "assets/img/examples/studio-1.jpg";
+import studio2 from "assets/img/examples/studio-2.jpg";
+import studio4 from "assets/img/examples/studio-4.jpg";
+import studio5 from "assets/img/examples/studio-5.jpg";
 
 class LandingPage extends React.Component {
   componentDidMount() {
@@ -44,11 +50,11 @@ class LandingPage extends React.Component {
 
   render() {
     const { classes, ...rest } = this.props;
+    const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
     return (
       <div>
         <Header
           color="transparent"
-          brand="joeyee.xyz"
           rightLinks={<HeaderLinks/>}
           fixed
           changeColorOnScroll={{
@@ -61,7 +67,8 @@ class LandingPage extends React.Component {
           <div className={classes.container}>
             <GridContainer>
               <GridItem xs={12} sm={12} md={12}>
-                <h1 className={classes.title}>Welcome my personal page.</h1>
+                <h1 className={classes.title}>Hey there, I'm Joey.</h1>
+                <h3>Welcome to my personal page.</h3>
               </GridItem>
             </GridContainer>
           </div>
@@ -71,83 +78,86 @@ class LandingPage extends React.Component {
             <div className={classes.section}>
               <GridContainer justify="center">
                 <GridItem xs={12} sm={12} md={8}>
-                  <h2 className={classes.description}>Let{"'"}s talk projects</h2>
-                  <h5 className={classes.description}>
-                    This is the paragraph where you can write more details about your
-                    product. Keep you user engaged by providing meaningful
-                    information. Remember that by this time, the user is curious,
-                    otherwise he wouldn{"'"}t scroll to get here. Add a button if you
-                    want the user to see more.
-                  </h5>
+                  <h2 className={classes.description}>Here are some of my hobby projects.</h2>
                 </GridItem>
               </GridContainer>
               <GridContainer justify="center">
-                <GridItem cs={12} sm={12} md={8}>
-                  <h2 className={classes.description}>ActionCable Example</h2>
-                  <form>
-                    <GridContainer>
-                      <CustomInput
-                        labelText="Your Message"
-                        id="message"
-                        formControlProps={{
-                          fullWidth: true,
-                          className: classes.textArea
-                        }}
-                        inputProps={{
-                          multiline: true,
-                          rows: 5
-                        }}
-                      />
-                      <GridContainer justify="center">
-                        <GridItem
-                          xs={12}
-                          sm={12}
-                          md={4}
-                          className={classes.textCenter}
-                        >
-                          <Button
-                            color="primary"
-                            onClick={() => { this.props.globalActions.messengerBroadcast({ message: "Hello World!", groupName: "Global" }) }}
-                          >
-                            Send Message To Console
-                          </Button>
-                        </GridItem>
-                      </GridContainer>
-                    </GridContainer>
-                  </form>
+                <GridItem xs={12} sm={12} md={12} className={classes.navWrapper}>
+                  <NavPills
+                    alignCenter
+                    color="primary"
+                    tabs={[
+                      {
+                        tabButton: "Studio",
+                        tabIcon: Camera,
+                        tabContent: (
+                          <GridContainer justify="center">
+                            <GridItem xs={12} sm={12} md={4}>
+                              <img
+                                alt="..."
+                                src={studio1}
+                                className={navImageClasses}
+                              />
+                              <img
+                                alt="..."
+                                src={studio2}
+                                className={navImageClasses}
+                              />
+                            </GridItem>
+                            <GridItem xs={12} sm={12} md={4}>
+                              <img
+                                alt="..."
+                                src={studio5}
+                                className={navImageClasses}
+                              />
+                              <img
+                                alt="..."
+                                src={studio4}
+                                className={navImageClasses}
+                              />
+                            </GridItem>
+                          </GridContainer>
+                        )
+                      },
+                      {
+                        tabButton: "Work",
+                        tabIcon: Palette,
+                        tabContent: (
+                          <GridContainer>
+                            <GridItem xs={12} sm={12} md={4}>
+                              <InfoArea
+                                title="Free Chat"
+                                description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
+                                icon={Chat}
+                                iconColor="info"
+                                vertical
+                              />
+                            </GridItem>
+                            <GridItem xs={12} sm={12} md={4}>
+                              <InfoArea
+                                title="Verified Users"
+                                description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
+                                icon={VerifiedUser}
+                                iconColor="success"
+                                vertical
+                              />
+                            </GridItem>
+                            <GridItem xs={12} sm={12} md={4}>
+                              <InfoArea
+                                title="Fingerprint"
+                                description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
+                                icon={Fingerprint}
+                                iconColor="danger"
+                                vertical
+                              />
+                            </GridItem>
+                          </GridContainer>
+                        )
+                      }
+                    ]}
+                  />
                 </GridItem>
               </GridContainer>
-              <div>
-                <GridContainer>
-                  <GridItem xs={12} sm={12} md={4}>
-                    <InfoArea
-                      title="Free Chat"
-                      description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
-                      icon={Chat}
-                      iconColor="info"
-                      vertical
-                    />
-                  </GridItem>
-                  <GridItem xs={12} sm={12} md={4}>
-                    <InfoArea
-                      title="Verified Users"
-                      description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
-                      icon={VerifiedUser}
-                      iconColor="success"
-                      vertical
-                    />
-                  </GridItem>
-                  <GridItem xs={12} sm={12} md={4}>
-                    <InfoArea
-                      title="Fingerprint"
-                      description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
-                      icon={Fingerprint}
-                      iconColor="danger"
-                      vertical
-                    />
-                  </GridItem>
-                </GridContainer>
-              </div>
             </div>
           </div>
         </div>

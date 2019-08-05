@@ -33,7 +33,6 @@ class NavPills extends React.Component {
     const {
       classes,
       tabs,
-      direction,
       color,
       horizontal,
       alignCenter
@@ -82,7 +81,7 @@ class NavPills extends React.Component {
     const tabContent = (
       <div className={classes.contentWrapper}>
         <SwipeableViews
-          axis={direction === "rtl" ? "x-reverse" : "x"}
+          axis={"x"}
           index={this.state.active}
           onChangeIndex={this.handleChangeIndex}
         >
@@ -134,7 +133,6 @@ NavPills.propTypes = {
     "info",
     "rose"
   ]),
-  direction: PropTypes.string,
   horizontal: PropTypes.shape({
     tabsGrid: PropTypes.object,
     contentGrid: PropTypes.object

@@ -74,7 +74,7 @@ html {
   -webkit-tap-highlight-color: transparent;
 }
 body {
-  background-color: #121212;
+  background-color: $grey-900;
   color: $grey-400;
   margin: 0;
   font-size: 1rem;
@@ -119,7 +119,8 @@ small {
 }
 img {
   vertical-align: middle;
-  border-style: none;
+  border-style: solid;
+  border-color: $grey-800;
 }
 form {
   margin-bottom: 1.125rem;

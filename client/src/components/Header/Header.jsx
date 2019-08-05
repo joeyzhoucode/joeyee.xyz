@@ -61,7 +61,6 @@ class Header extends React.Component {
       color,
       rightLinks,
       leftLinks,
-      brand,
       fixed,
       absolute
     } = this.props;
@@ -71,7 +70,11 @@ class Header extends React.Component {
       [classes.absolute]: absolute,
       [classes.fixed]: fixed
     });
-    const brandComponent = <Button className={classes.title}>{brand}</Button>;
+    const brandComponent = 
+      <div>
+        <Button className={classes.title} href="https://github.com/joeyzhoucode" target="_blank">GitHub</Button> | 
+        <Button className={classes.title} href="https://linkedin.com/in/joeyzhoucode" target="_blank">LinkedIn</Button>
+      </div>;
     return (
       <AppBar className={appBarClasses}>
         <Toolbar className={classes.container}>
@@ -138,7 +141,6 @@ Header.propTypes = {
   ]),
   rightLinks: PropTypes.node,
   leftLinks: PropTypes.node,
-  brand: PropTypes.string,
   fixed: PropTypes.bool,
   absolute: PropTypes.bool,
   // this will cause the sidebar to change the color from
