@@ -30,8 +30,6 @@ import CustomInput from "components/CustomInput/CustomInput.jsx";
 
 import landingPageStyle from "assets/jss/material-kit-react/containers/landingPage.jsx";
 
-const dashboardRoutes = [];
-
 class LandingPage extends React.Component {
   componentDidMount() {
     this.props.profileActions.profileFetch();
@@ -50,7 +48,6 @@ class LandingPage extends React.Component {
       <div>
         <Header
           color="transparent"
-          routes={dashboardRoutes}
           brand="joeyee.xyz"
           rightLinks={<HeaderLinks/>}
           fixed
@@ -63,14 +60,8 @@ class LandingPage extends React.Component {
         <Parallax filter image={require("assets/img/landing-bg.jpg")}>
           <div className={classes.container}>
             <GridContainer>
-              <GridItem xs={12} sm={12} md={6}>
-                <h1 className={classes.title}>Welcome to my website!</h1>
-                <h4>
-                  Every landing page needs a small description after the big
-                  bold title, that{"'"}s why we added this text here. Add here
-                  all the information that can make you or your product create
-                  the first impression.
-                </h4>
+              <GridItem xs={12} sm={12} md={12}>
+                <h1 className={classes.title}>Welcome my personal page.</h1>
               </GridItem>
             </GridContainer>
           </div>

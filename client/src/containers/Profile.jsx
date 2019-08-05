@@ -69,7 +69,17 @@ class ProfilePage extends React.Component {
                 <GridItem xs={12} sm={12} md={6}>
                   <div className={classes.profile}>
                     <div>
-                      <img src={profile} alt="..." className={imageClasses} />
+                      <img
+                        src={profile} 
+                        alt="..."
+                        className={
+                          classes.imgRaised +
+                          " " +
+                          classes.imgRoundedCircle +
+                          " " +
+                          classes.imgFluid
+                        } 
+                      />
                     </div>
                     <div className={classes.name}>
                       <h3 className={classes.title}>Joey Zhou</h3>
