@@ -47,6 +47,7 @@ function Footer({ ...props }) {
             href="https://github.com/joeyzhoucode"
             className={aClasses}
             target="_blank"
+            rel="noopener"
           >
             Joey Zhou
           </a>

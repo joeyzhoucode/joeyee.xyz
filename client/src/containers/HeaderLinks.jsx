@@ -30,6 +30,7 @@ class HeaderLinks extends React.Component {
           <Button
             color="transparent"
             target="_blank"
+            rel="noopener"
             className={classes.navLink}
             onClick={() => { this.props.globalActions.historyPush('/'); }}
           >
@@ -40,6 +41,7 @@ class HeaderLinks extends React.Component {
           <Button
             color="transparent"
             target="_blank"
+            rel="noopener"
             className={classes.navLink}
             onClick={() => { this.props.globalActions.historyPush('/profile'); }}
           >

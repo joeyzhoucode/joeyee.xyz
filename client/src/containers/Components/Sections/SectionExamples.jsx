@@ -13,8 +13,8 @@ import GridItem from "components/Grid/GridItem.jsx";
 import Button from "components/CustomButtons/Button.jsx";
 import exampleStyle from "assets/jss/material-kit-react/containers/componentsSections/exampleStyle.jsx";
 
-import landing from "assets/img/landing-bg.jpg";
-import profile from "assets/img/profile-bg.jpg";
+import landing from "assets/img/landing-bg.webp";
+import profile from "assets/img/profile-bg.webp";
 
 class SectionExamples extends React.Component {
   render() {

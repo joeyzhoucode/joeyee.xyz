@@ -72,8 +72,8 @@ class Header extends React.Component {
     });
     const brandComponent = 
       <div>
-        <Button className={classes.title} href="https://github.com/joeyzhoucode" target="_blank">GitHub</Button> | 
-        <Button className={classes.title} href="https://linkedin.com/in/joeyzhoucode" target="_blank">LinkedIn</Button>
+        <Button className={classes.title} href="https://github.com/joeyzhoucode" target="_blank" rel="noopener">GitHub</Button> | 
+        <Button className={classes.title} href="https://linkedin.com/in/joeyzhoucode" target="_blank" rel="noopener">LinkedIn</Button>
       </div>;
     return (
       <AppBar className={appBarClasses}>

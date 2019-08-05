@@ -19,7 +19,7 @@ import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
 import Parallax from "components/Parallax/Parallax.jsx";
 
-import profile from "assets/img/faces/joey.jpg";
+import profile from "assets/img/faces/joey.webp";
 
 import profilePageStyle from "assets/jss/material-kit-react/containers/profilePage.jsx";
 
@@ -44,7 +44,7 @@ class ProfilePage extends React.Component {
           }}
           {...rest}
         />
-        <Parallax small filter image={require("assets/img/profile-bg.jpg")} />
+        <Parallax small filter image={require("assets/img/profile-bg.webp")} />
         <div className={classNames(classes.main, classes.mainRaised)}>
           <div>
             <div className={classes.container}>

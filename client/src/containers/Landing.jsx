@@ -33,8 +33,8 @@ import Palette from "@material-ui/icons/Palette";
 import NavPills from "components/NavPills/NavPills.jsx";
 import studio1 from "assets/img/examples/studio-1.jpg";
 import studio2 from "assets/img/examples/studio-2.jpg";
+import studio3 from "assets/img/examples/studio-3.jpg";
 import studio4 from "assets/img/examples/studio-4.jpg";
-import studio5 from "assets/img/examples/studio-5.jpg";
 
 class LandingPage extends React.Component {
   componentDidMount() {
@@ -63,7 +63,7 @@ class LandingPage extends React.Component {
           }}
           {...rest}
         />
-        <Parallax filter image={require("assets/img/landing-bg.jpg")}>
+        <Parallax filter image={require("assets/img/landing-bg.webp")}>
           <div className={classes.container}>
             <GridContainer>
               <GridItem xs={12} sm={12} md={12}>
@@ -107,7 +107,7 @@ class LandingPage extends React.Component {
                             <GridItem xs={12} sm={12} md={4}>
                               <img
                                 alt="..."
-                                src={studio5}
+                                src={studio3}
                                 className={navImageClasses}
                               />
                               <img
