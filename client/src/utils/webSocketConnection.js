@@ -1,6 +1,6 @@
 import ActionCable from 'actioncable'
 
-const PROTOCOL = window.location.protocol === "https" ?  "wss://" : "ws://";
+const PROTOCOL = window.location.protocol === "https:" ?  "wss://" : "ws://";
 const BASE_URL = window.location.hostname === "localhost" ? "localhost:3001" : window.location.hostname;
 const ACCESS_TOKEN = "accessToken";
 const CLIENT_ID = "client";
