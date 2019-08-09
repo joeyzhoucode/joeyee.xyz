@@ -43,7 +43,8 @@ const loginStyle = {
   divider: {
     marginTop: "30px",
     marginBottom: "0px",
-    textAlign: "center"
+    textAlign: "center",
+    color: "#FFFFFF"
   },
   cardFooter: {
     paddingTop: "0rem",

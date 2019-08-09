@@ -45,7 +45,8 @@ const signupPageStyle = {
     }
   },
   form: {
-    margin: "0"
+    margin: "0",
+    background: "#121212"
   },
   cardHeader: {
     width: "auto",
@@ -70,7 +71,8 @@ const signupPageStyle = {
   divider: {
     marginTop: "30px",
     marginBottom: "0px",
-    textAlign: "center"
+    textAlign: "center",
+    color: "#FFFFFF"
   },
   cardFooter: {
     paddingTop: "0rem",
