@@ -1,17 +1,18 @@
 import ActionCable from 'actioncable'
 
+const PROTOCOL = window.location.protocol === "https" ?  "wss://" : "ws://";
 const BASE_URL = window.location.hostname === "localhost" ? "localhost:3001" : window.location.hostname;
 const ACCESS_TOKEN = "accessToken";
-const CLIENT = "client";
+const CLIENT_ID = "client";
 
 export const MESSAGE_TYPE = "MESSAGE";
 
 function webSocketConnection(userId, callback, connectionType) {
   let accessToken = localStorage.getItem(ACCESS_TOKEN);
-  let client = localStorage.getItem(CLIENT);
+  let clientId = localStorage.getItem(CLIENT_ID);
 
-  var wsUrl = 'ws://' + BASE_URL + '/cable';
-  wsUrl += '?access-token=' + accessToken + '&client=' + client;
+  let wsUrl = PROTOCOL + BASE_URL + '/cable';
+  wsUrl += '?access-token=' + accessToken + '&client-id=' + clientId;
 
   this.userId = userId;
   this.callback = callback;
