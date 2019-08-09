@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import * as globalActions from "actions/globalActions";
+import * as homeActions from "actions/homeActions";
 import * as userActions from "actions/userActions";
 // nodejs library to set properties for components
 import PropTypes from "prop-types";
@@ -43,8 +43,8 @@ class LandingPage extends React.Component {
 
   componentDidUpdate() {
     const userId = this.props.user.id;
-    if(userId && !this.props.global.connection) {
-      this.props.globalActions.messengerSubscribe(userId, "Global", data => { console.log(data); });
+    if(userId && !this.props.home.connection) {
+      this.props.homeActions.messengerSubscribe(userId, "Global", data => { console.log(data); });
     }
   }
 
@@ -173,14 +173,14 @@ LandingPage.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    global: state.global,
+    home: state.home,
     user: state.user,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    globalActions: bindActionCreators(globalActions, dispatch),
+    homeActions: bindActionCreators(homeActions, dispatch),
     userActions: bindActionCreators(userActions, dispatch),
   }
 }

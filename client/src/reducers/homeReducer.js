@@ -2,32 +2,18 @@ import { initialState } from './rootReducer';
 import webSocketConnection from "utils/webSocketConnection";
 import { MESSAGE_TYPE } from 'utils/webSocketConnection';
 import { 
-  NAVIGATOR_DRAWER_TOGGLE,
-  NAVIGATOR_DRAWER_CLOSE,
   UPDATE_MESSAGE_INPUT,
   MESSENGER_FETCH_SUCCESS,
   MESSENGER_SUBSCRIBE,
   MESSENGER_UNSUBSCRIBE,
   MESSENGER_RECIEVE,
   MESSENGER_BROADCAST,
-  } from '../actions/globalActions';
+  } from '../actions/homeActions';
 
-export default function global(state = initialState.global, action) {
+export default function home(state = initialState.home, action) {
   let newState;
   let newMessages;
   switch (action.type) {
-    case NAVIGATOR_DRAWER_TOGGLE:
-      newState = {
-        ...state,
-        mobileOpen: !state.mobileOpen,
-      }
-      return newState;
-    case NAVIGATOR_DRAWER_CLOSE:
-      newState = {
-        ...state,
-        mobileOpen: false,
-      }
-      return newState;
     case UPDATE_MESSAGE_INPUT:
       newState = {
         ...state,

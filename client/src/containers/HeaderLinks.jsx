@@ -2,7 +2,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import * as globalActions from "actions/globalActions";
+import * as homeActions from "actions/homeActions";
 import * as userActions from "actions/userActions";
 // nodejs library to set properties for components
 import PropTypes from "prop-types";
@@ -32,7 +32,7 @@ class HeaderLinks extends React.Component {
             target="_blank"
             rel="noopener"
             className={classes.navLink}
-            onClick={() => { this.props.globalActions.historyPush('/'); }}
+            onClick={() => { this.props.homeActions.historyPush('/'); }}
           >
             <Home className={classes.icons} /> Home
           </Button>
@@ -43,7 +43,7 @@ class HeaderLinks extends React.Component {
             target="_blank"
             rel="noopener"
             className={classes.navLink}
-            onClick={() => { this.props.globalActions.historyPush('/about'); }}
+            onClick={() => { this.props.homeActions.historyPush('/about'); }}
           >
             <Person className={classes.icons} /> About Me
           </Button>
@@ -60,13 +60,13 @@ class HeaderLinks extends React.Component {
             dropdownList={[
               <div
                 className={classes.dropdownLink}
-                onClick={() => { this.props.globalActions.historyPush('/login'); }}
+                onClick={() => { this.props.homeActions.historyPush('/login'); }}
               >
                 <Extension className={classes.icons} /> Login
               </div>,
               <div
                 className={classes.dropdownLink}
-                onClick={() => { this.props.globalActions.historyPush('/components'); }}
+                onClick={() => { this.props.homeActions.historyPush('/components'); }}
               >
                 <Extension className={classes.icons} /> Components
               </div>,
@@ -84,14 +84,14 @@ HeaderLinks.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    global: state.global,
+    home: state.home,
     user: state.user,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    globalActions: bindActionCreators(globalActions, dispatch),
+    homeActions: bindActionCreators(homeActions, dispatch),
     userActions: bindActionCreators(userActions, dispatch),
   }
 }
