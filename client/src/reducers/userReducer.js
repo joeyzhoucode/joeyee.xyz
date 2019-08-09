@@ -1,10 +1,10 @@
 import { initialState } from './rootReducer';
-import { PROFILE_FETCH_CALLBACK } from '../actions/profileActions';
+import { USER_FETCH_CALLBACK } from '../actions/userActions';
 
-export default function profile(state = initialState.profile, action) {
+export default function user(state = initialState.user, action) {
   let newState;
   switch(action.type) {
-    case PROFILE_FETCH_CALLBACK:
+    case USER_FETCH_CALLBACK:
       newState = {
         ...state,
         id: action.data.id,

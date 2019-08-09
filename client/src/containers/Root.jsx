@@ -6,14 +6,14 @@ import { ConnectedRouter } from "connected-react-router";
 
 import Components from "containers/Components/Components.jsx";
 import Landing from "containers/Landing.jsx";
-import Profile from "containers/Profile.jsx";
+import About from "containers/About.jsx";
 import Login from "containers/Login.jsx";
 
 const Root = ({ store, history }) => (
   <Provider store={store}>
     <ConnectedRouter history={history}>
       <Switch>
-        <Route path="/profile" component={Profile} />
+        <Route path="/about" component={About} />
         <Route path="/login" component={Login} />
         <Route path="/components" component={Components} />
         <Route path="/" component={Landing} />

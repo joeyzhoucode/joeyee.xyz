@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as globalActions from "actions/globalActions";
-import * as profileActions from "actions/profileActions";
+import * as userActions from "actions/userActions";
 // nodejs library to set properties for components
 import PropTypes from "prop-types";
 // nodejs library that concatenates classes
@@ -19,11 +19,11 @@ import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
 import Parallax from "components/Parallax/Parallax.jsx";
 
-import profile from "assets/img/faces/joey.webp";
+import picture from "assets/img/faces/joey.webp";
 
-import profilePageStyle from "assets/jss/material-kit-react/containers/profilePage.jsx";
+import aboutPageStyle from "assets/jss/material-kit-react/containers/aboutPage.jsx";
 
-class ProfilePage extends React.Component {
+class AboutPage extends React.Component {
   render() {
     const { classes, ...rest } = this.props;
     const imageClasses = classNames(
@@ -53,7 +53,7 @@ class ProfilePage extends React.Component {
                   <div className={classes.profile}>
                     <div>
                       <img
-                        src={profile} 
+                        src={picture} 
                         alt="..."
                         className={imageClasses} 
                       />
@@ -102,21 +102,21 @@ class ProfilePage extends React.Component {
   }
 }
 
-ProfilePage.propTypes = {
+AboutPage.propTypes = {
   classes: PropTypes.object
 };
 
 function mapStateToProps(state) {
   return {
     global: state.global,
-    profile: state.profile,
+    user: state.user,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
     globalActions: bindActionCreators(globalActions, dispatch),
-    profileActions: bindActionCreators(profileActions, dispatch),
+    userActions: bindActionCreators(userActions, dispatch),
   }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(profilePageStyle)(ProfilePage));
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(aboutPageStyle)(AboutPage));

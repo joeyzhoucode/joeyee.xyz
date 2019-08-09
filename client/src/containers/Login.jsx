@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as globalActions from "actions/globalActions";
-import * as profileActions from "actions/profileActions";
+import * as userActions from "actions/userActions";
 // nodejs library to set properties for components
 import PropTypes from "prop-types";
 // @material-ui/core components
@@ -172,14 +172,14 @@ LoginPage.propTypes = {
 function mapStateToProps(state) {
   return {
     global: state.global,
-    profile: state.profile,
+    user: state.user,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
     globalActions: bindActionCreators(globalActions, dispatch),
-    profileActions: bindActionCreators(profileActions, dispatch),
+    userActions: bindActionCreators(userActions, dispatch),
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(withStyles(loginPageStyle)(LoginPage));

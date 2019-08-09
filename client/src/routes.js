@@ -6,7 +6,7 @@ import NotificationsIcon from "@material-ui/icons/Notifications";
 
 // core components/views for Home layout
 import Home from "containers/Home.jsx";
-import Profile from "containers/Profile.jsx";
+import About from "containers/About.jsx";
 import TableList from "containers/TableList.jsx";
 import Player from "containers/Player.jsx";
 import NotificationsPage from "containers/Notifications.jsx";
@@ -19,10 +19,10 @@ const dashboardRoutes = [
     component: Home,
   },
   {
-    path: "/profile",
-    name: "Profile",
+    path: "/about",
+    name: "About",
     icon: PersonIcon,
-    component: Profile,
+    component: About,
   },
   {
     path: "/playlist",

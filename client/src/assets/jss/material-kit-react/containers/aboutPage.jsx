@@ -2,7 +2,7 @@ import { container, title } from "assets/jss/material-kit-react.jsx";
 
 import imagesStyle from "assets/jss/material-kit-react/imagesStyles.jsx";
 
-const profilePageStyle = {
+const aboutPageStyle = {
   container,
   profile: {
     textAlign: "center",
@@ -59,4 +59,4 @@ const profilePageStyle = {
   }
 };
 
-export default profilePageStyle;
+export default aboutPageStyle;

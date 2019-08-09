@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as globalActions from "actions/globalActions";
-import * as profileActions from "actions/profileActions";
+import * as userActions from "actions/userActions";
 // nodejs library to set properties for components
 import PropTypes from "prop-types";
 // nodejs library that concatenates classes
@@ -38,11 +38,11 @@ import studio4 from "assets/img/examples/studio-4.jpg";
 
 class LandingPage extends React.Component {
   componentDidMount() {
-    this.props.profileActions.profileFetch();
+    this.props.userActions.userFetch();
   }
 
   componentDidUpdate() {
-    const userId = this.props.profile.id;
+    const userId = this.props.user.id;
     if(userId && !this.props.global.connection) {
       this.props.globalActions.messengerSubscribe(userId, "Global", data => { console.log(data); });
     }
@@ -174,14 +174,14 @@ LandingPage.propTypes = {
 function mapStateToProps(state) {
   return {
     global: state.global,
-    profile: state.profile,
+    user: state.user,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
     globalActions: bindActionCreators(globalActions, dispatch),
-    profileActions: bindActionCreators(profileActions, dispatch),
+    userActions: bindActionCreators(userActions, dispatch),
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(withStyles(landingPageStyle)(LandingPage));
