@@ -85,6 +85,7 @@ class LoginPage extends React.Component {
                           justIcon
                           href="/auth/facebook"
                           color="transparent"
+                          disabled
                         >
                           <i className={"fab fa-facebook"} />
                         </Button>
@@ -92,6 +93,7 @@ class LoginPage extends React.Component {
                           justIcon
                           href="/auth/github"
                           color="transparent"
+                          disabled
                         >
                           <i className={"fab fa-github"} />
                         </Button>
@@ -149,8 +151,8 @@ class LoginPage extends React.Component {
                       />
                     </CardBody>
                     <CardFooter className={classes.cardFooter}>
-                      <Button simple color="primary" size="lg">
-                        Get started
+                      <Button simple color="primary" size="lg" disabled>
+                        Sign In
                       </Button>
                     </CardFooter>
                   </form>
