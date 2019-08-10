@@ -39,6 +39,17 @@ import studio4 from "assets/img/examples/studio-4.jpg";
 class LandingPage extends React.Component {
   componentDidMount() {
     this.props.userActions.userFetch();
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.prompt();
+      e.userChoice.then((choiceResult) => {
+        if (choiceResult.outcome === 'accepted') {
+          console.log('User accepted the A2HS prompt');
+        } else {
+          console.log('User dismissed the A2HS prompt');
+        }
+        e = null;
+      });
+    });
   }
 
   componentDidUpdate() {
