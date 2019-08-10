@@ -21,4 +21,6 @@ const store = createStore(
 );
 
 render(<Root store={store} history={hist} />, document.getElementById("root"));
-serviceWorker.register();
+serviceWorker.register({
+  scope: '/api/'
+});

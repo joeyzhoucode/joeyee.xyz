@@ -13,7 +13,7 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 
 // @material-ui/icons
-import { Home, Person, Dashboard, Extension, CloudDownload } from "@material-ui/icons";
+import { Home, Person, Dashboard, Lock, LockOpen, CloudDownload } from "@material-ui/icons";
 
 // core components
 import CustomDropdown from "components/CustomDropdown/CustomDropdown.jsx";
@@ -38,19 +38,26 @@ class HeaderLinks extends React.Component {
 
   render() {
     const { classes, ...rest } = this.props;
-    const AuthenticationLink = this.props.user && this.props.user.id ?
-      <a
-        className={classes.dropdownLink}
-        href="/login"
-      >
-        <Extension className={classes.icons} /> Login
-      </a> : 
+
+    const userId = this.props.user.id;
+    const AuthenticationLink = userId ?
       <a
         className={classes.dropdownLink}
         href="/logout"
+        target="_blank"
+        rel="noopener"
       >
-        <Extension className={classes.icons} /> Logout
+        <Lock className={classes.icons} /> Logout
+      </a> : 
+      <a
+        className={classes.dropdownLink}
+        href="/login"
+        target="_blank"
+        rel="noopener"
+      >
+        <LockOpen className={classes.icons} /> Login
       </a>;
+
     const InstallAppLink = this.props.home.installPrompt ? 
       <div
         className={classes.dropdownLink}
@@ -62,7 +69,9 @@ class HeaderLinks extends React.Component {
         }}
       >
         <CloudDownload className={classes.icons} /> Install App
-      </div> : <div></div>;
+      </div> : 
+      <div></div>;
+
     return (
       <List className={classes.list}>
         <ListItem className={classes.listItem}>
@@ -102,7 +111,7 @@ class HeaderLinks extends React.Component {
                 className={classes.dropdownLink}
                 onClick={() => { this.props.homeActions.historyPush('/components'); }}
               >
-                <Extension className={classes.icons} /> Components
+                <CloudDownload className={classes.icons} /> Components
               </div>,
               InstallAppLink
             ]}
