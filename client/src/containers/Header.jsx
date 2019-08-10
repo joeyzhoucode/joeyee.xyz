@@ -79,7 +79,6 @@ class Header extends React.Component {
         <Button className={classes.title} href="https://github.com/joeyzhoucode" target="_blank" rel="noopener">GitHub</Button> | 
         <Button className={classes.title} href="https://linkedin.com/in/joeyzhoucode" target="_blank" rel="noopener">LinkedIn</Button>
       </div>;
-    console.log(children);
     return (
       <div>
         <AppBar className={appBarClasses}>

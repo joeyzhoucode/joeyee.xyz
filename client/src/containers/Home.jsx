@@ -36,7 +36,7 @@ import studio4 from "assets/img/examples/studio-4.jpg";
 
 class HomePage extends React.Component {
   render() {
-    const { classes, ...rest } = this.props;
+    const { classes } = this.props;
     const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
     return (
       <div>

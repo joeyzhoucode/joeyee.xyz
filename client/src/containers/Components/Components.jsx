@@ -13,9 +13,7 @@ import { Link } from "react-router-dom";
 import withStyles from "@material-ui/core/styles/withStyles";
 // @material-ui/icons
 
-import HeaderLinks from "containers/HeaderLinks.jsx";
 // core components
-import Header from "components/Header/Header.jsx";
 import Footer from "components/Footer/Footer.jsx";
 import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
@@ -38,7 +36,7 @@ import componentsStyle from "assets/jss/material-kit-react/containers/components
 
 class Components extends React.Component {
   render() {
-    const { classes, ...rest } = this.props;
+    const { classes } = this.props;
     return (
       <div>
         <Parallax image={require("assets/img/landing-bg.webp")}>

@@ -23,23 +23,19 @@ import headerLinksStyle from "assets/jss/material-kit-react/containers/headerLin
 
 class HeaderLinks extends React.Component {
   render() {
-    const { classes, ...rest } = this.props;
+    const { classes } = this.props;
 
     const userId = this.props.user.id;
     const AuthenticationLink = userId ?
       <a
         className={classes.dropdownLink}
         href="/logout"
-        target="_blank"
-        rel="noopener"
       >
         <Lock className={classes.icons} /> Logout
       </a> : 
       <a
         className={classes.dropdownLink}
         href="/login"
-        target="_blank"
-        rel="noopener"
       >
         <LockOpen className={classes.icons} /> Login
       </a>;
