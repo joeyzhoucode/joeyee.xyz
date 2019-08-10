@@ -9,9 +9,9 @@ export const initialState = {
   },
   user: {
     id: null,
-    firstName: "John",
-    lastName: "Doe",
-    email: "John@Doe.com",
+    firstName: "Guest",
+    lastName: "User",
+    email: null,
     image: null,
   },
 };

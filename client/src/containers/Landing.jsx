@@ -37,17 +37,6 @@ import studio3 from "assets/img/examples/studio-3.jpg";
 import studio4 from "assets/img/examples/studio-4.jpg";
 
 class LandingPage extends React.Component {
-  componentDidMount() {
-    this.props.userActions.userFetch();
-  }
-
-  componentDidUpdate() {
-    const userId = this.props.user.id;
-    if(userId && !this.props.home.connection) {
-      this.props.homeActions.messengerSubscribe(userId, "Global", data => { console.log(data); });
-    }
-  }
-
   render() {
     const { classes, ...rest } = this.props;
     const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);

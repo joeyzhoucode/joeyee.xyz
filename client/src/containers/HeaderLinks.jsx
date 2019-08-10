@@ -23,14 +23,35 @@ import headerLinksStyle from "assets/jss/material-kit-react/containers/headerLin
 
 class HeaderLinks extends React.Component {
   componentDidMount() {
+    this.props.userActions.userFetch();
     window.addEventListener('beforeinstallprompt', (e) => {
       this.props.homeActions.saveInstallPrompt(e);
     });
   }
 
+  componentDidUpdate() {
+    const userId = this.props.user.id;
+    if(userId && !this.props.home.connection) {
+      this.props.homeActions.messengerSubscribe(userId, "Global", data => { console.log(data); });
+    }
+  }
+
   render() {
     const { classes, ...rest } = this.props;
-    const AppInstall = this.props.home.installPrompt ? 
+    const AuthenticationLink = this.props.user && this.props.user.id ?
+      <a
+        className={classes.dropdownLink}
+        href="/login"
+      >
+        <Extension className={classes.icons} /> Login
+      </a> : 
+      <a
+        className={classes.dropdownLink}
+        href="/logout"
+      >
+        <Extension className={classes.icons} /> Logout
+      </a>;
+    const InstallAppLink = this.props.home.installPrompt ? 
       <div
         className={classes.dropdownLink}
         onClick={() => {
@@ -76,19 +97,14 @@ class HeaderLinks extends React.Component {
             }}
             buttonIcon={Dashboard}
             dropdownList={[
-              <div
-                className={classes.dropdownLink}
-                onClick={() => { this.props.homeActions.historyPush('/login'); }}
-              >
-                <Extension className={classes.icons} /> Login
-              </div>,
+              AuthenticationLink,
               <div
                 className={classes.dropdownLink}
                 onClick={() => { this.props.homeActions.historyPush('/components'); }}
               >
                 <Extension className={classes.icons} /> Components
               </div>,
-              AppInstall
+              InstallAppLink
             ]}
           />
         </ListItem>
