@@ -1,6 +1,6 @@
 import { push } from 'connected-react-router';
 
-export const UPDATE_MESSAGE_INPUT = 'UPDATE_MESSAGE_INPUT';
+export const SAVE_INSTALL_PROMPT = 'SAVE_INSTALL_PROMPT';
 export const MESSENGER_FETCH_SUCCESS = 'MESSENGER_FETCH_SUCCESS';
 export const MESSENGER_SUBSCRIBE = 'MESSENGER_SUBSCRIBE';
 export const MESSENGER_UNSUBSCRIBE = 'MESSENGER_UNSUBSCRIBE';
@@ -13,8 +13,8 @@ export function historyPush(path) {
   }
 }
 
-export function updateMessageInput(messageInput) {
-  return { type: UPDATE_MESSAGE_INPUT, messageInput: messageInput };
+export function saveInstallPrompt(installPrompt) {
+  return { type: SAVE_INSTALL_PROMPT, installPrompt: installPrompt };
 }
 
 export function messengerFetch(groupName) {

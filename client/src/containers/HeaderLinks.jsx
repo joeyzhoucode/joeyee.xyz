@@ -13,7 +13,7 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 
 // @material-ui/icons
-import { Home, Person, Dashboard, Extension } from "@material-ui/icons";
+import { Home, Person, Dashboard, Extension, CloudDownload } from "@material-ui/icons";
 
 // core components
 import CustomDropdown from "components/CustomDropdown/CustomDropdown.jsx";
@@ -22,8 +22,21 @@ import Button from "components/CustomButtons/Button.jsx";
 import headerLinksStyle from "assets/jss/material-kit-react/containers/headerLinksStyle.jsx";
 
 class HeaderLinks extends React.Component {
+  componentDidMount() {
+    window.addEventListener('beforeinstallprompt', (e) => {
+      this.props.homeActions.saveInstallPrompt(e);
+    });
+  }
+
   render() {
     const { classes, ...rest } = this.props;
+    const AppInstall = this.props.home.installPrompt ? 
+      <div
+        className={classes.dropdownLink}
+        onClick={() => { this.props.home.installPrompt.prompt(); }}
+      >
+        <CloudDownload className={classes.icons} /> Install App
+      </div> : <div></div>;
     return (
       <List className={classes.list}>
         <ListItem className={classes.listItem}>
@@ -70,6 +83,7 @@ class HeaderLinks extends React.Component {
               >
                 <Extension className={classes.icons} /> Components
               </div>,
+              AppInstall
             ]}
           />
         </ListItem>

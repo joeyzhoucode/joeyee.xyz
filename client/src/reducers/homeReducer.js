@@ -2,7 +2,7 @@ import { initialState } from './rootReducer';
 import webSocketConnection from "utils/webSocketConnection";
 import { MESSAGE_TYPE } from 'utils/webSocketConnection';
 import { 
-  UPDATE_MESSAGE_INPUT,
+  SAVE_INSTALL_PROMPT,
   MESSENGER_FETCH_SUCCESS,
   MESSENGER_SUBSCRIBE,
   MESSENGER_UNSUBSCRIBE,
@@ -14,10 +14,10 @@ export default function home(state = initialState.home, action) {
   let newState;
   let newMessages;
   switch (action.type) {
-    case UPDATE_MESSAGE_INPUT:
+    case SAVE_INSTALL_PROMPT:
       newState = {
         ...state,
-        messageInput: action.messageInput,
+        installPrompt: action.installPrompt,
       }
       return newState;
     case MESSENGER_FETCH_SUCCESS:

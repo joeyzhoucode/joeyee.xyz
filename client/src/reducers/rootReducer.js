@@ -5,7 +5,7 @@ import user from 'reducers/userReducer';
 
 export const initialState = {
   home: {
-    
+    installPrompt: null,
   },
   user: {
     id: null,
