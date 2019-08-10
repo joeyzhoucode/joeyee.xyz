@@ -1,6 +1,5 @@
 import React from "react";
 import { render } from "react-dom";
-import * as serviceWorker from './serviceWorker';
 
 import { createStore, compose, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
@@ -21,6 +20,3 @@ const store = createStore(
 );
 
 render(<Root store={store} history={hist} />, document.getElementById("root"));
-serviceWorker.register({
-  scope: '/api/'
-});

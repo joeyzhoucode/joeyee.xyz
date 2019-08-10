@@ -41,17 +41,6 @@ class Components extends React.Component {
     const { classes, ...rest } = this.props;
     return (
       <div>
-        <Header
-          brand="joeyee.xyz"
-          rightLinks={<HeaderLinks/>}
-          fixed
-          color="transparent"
-          changeColorOnScroll={{
-            height: 200,
-            color: "dark"
-          }}
-          {...rest}
-        />
         <Parallax image={require("assets/img/landing-bg.webp")}>
           <div className={classes.container}>
             <GridContainer>

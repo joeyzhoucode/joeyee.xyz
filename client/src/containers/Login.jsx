@@ -51,13 +51,6 @@ class LoginPage extends React.Component {
     const { classes, ...rest } = this.props;
     return (
       <div>
-        <Header
-          absolute
-          color="transparent"
-          brand="joeyee.xyz"
-          rightLinks={<HeaderLinks/>}
-          {...rest}
-        />
         <div
           className={classes.pageHeader}
           style={{

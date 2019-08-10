@@ -33,17 +33,6 @@ class AboutPage extends React.Component {
     );
     return (
       <div>
-        <Header
-          color="transparent"
-          brand="joeyee.xyz"
-          rightLinks={<HeaderLinks/>}
-          fixed
-          changeColorOnScroll={{
-            height: 200,
-            color: "dark"
-          }}
-          {...rest}
-        />
         <Parallax small filter image={require("assets/img/profile-bg.webp")} />
         <div className={classNames(classes.main, classes.mainRaised)}>
           <div>

@@ -22,20 +22,6 @@ import Button from "components/CustomButtons/Button.jsx";
 import headerLinksStyle from "assets/jss/material-kit-react/containers/headerLinksStyle.jsx";
 
 class HeaderLinks extends React.Component {
-  componentDidMount() {
-    this.props.userActions.userFetch();
-    window.addEventListener('beforeinstallprompt', (e) => {
-      this.props.homeActions.saveInstallPrompt(e);
-    });
-  }
-
-  componentDidUpdate() {
-    const userId = this.props.user.id;
-    if(userId && !this.props.home.connection) {
-      this.props.homeActions.messengerSubscribe(userId, "Global", data => { console.log(data); });
-    }
-  }
-
   render() {
     const { classes, ...rest } = this.props;
 
@@ -80,7 +66,7 @@ class HeaderLinks extends React.Component {
             target="_blank"
             rel="noopener"
             className={classes.navLink}
-            onClick={() => { this.props.homeActions.historyPush('/'); }}
+            onClick={() => { this.props.homeActions.historyPush('/home'); }}
           >
             <Home className={classes.icons} /> Home
           </Button>

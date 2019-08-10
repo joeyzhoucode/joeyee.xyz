@@ -10,9 +10,7 @@ import classNames from "classnames";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
 
-import HeaderLinks from "containers/HeaderLinks.jsx";
 // core components
-import Header from "components/Header/Header.jsx";
 import Footer from "components/Footer/Footer.jsx";
 import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
@@ -36,22 +34,12 @@ import studio2 from "assets/img/examples/studio-2.jpg";
 import studio3 from "assets/img/examples/studio-3.jpg";
 import studio4 from "assets/img/examples/studio-4.jpg";
 
-class LandingPage extends React.Component {
+class HomePage extends React.Component {
   render() {
     const { classes, ...rest } = this.props;
     const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
     return (
       <div>
-        <Header
-          color="transparent"
-          rightLinks={<HeaderLinks/>}
-          fixed
-          changeColorOnScroll={{
-            height: 200,
-            color: "dark"
-          }}
-          {...rest}
-        />
         <Parallax filter image={require("assets/img/landing-bg.webp")}>
           <div className={classes.container}>
             <GridContainer>
@@ -156,7 +144,7 @@ class LandingPage extends React.Component {
   }
 }
 
-LandingPage.propTypes = {
+HomePage.propTypes = {
   classes: PropTypes.object
 };
 
@@ -173,4 +161,4 @@ function mapDispatchToProps(dispatch) {
     userActions: bindActionCreators(userActions, dispatch),
   }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(landingPageStyle)(LandingPage));
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(landingPageStyle)(HomePage));
