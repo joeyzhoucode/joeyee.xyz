@@ -34,7 +34,13 @@ import studio2 from "assets/img/examples/studio-2.jpg";
 import studio3 from "assets/img/examples/studio-3.jpg";
 import studio4 from "assets/img/examples/studio-4.jpg";
 
+import * as serviceWorker from "../serviceWorker";
+
 class HomePage extends React.Component {
+  componentDidMount() {
+    serviceWorker.register();
+  }
+
   render() {
     const { classes } = this.props;
     const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);

@@ -81,6 +81,7 @@ class Header extends React.Component {
       </div>;
     return (
       <div>
+        {children}
         <AppBar className={appBarClasses}>
           <Toolbar className={classes.container}>
             {brandComponent}
@@ -113,7 +114,6 @@ class Header extends React.Component {
             </Drawer>
           </Hidden>
         </AppBar>
-        {children}
       </div>
     );
   }
