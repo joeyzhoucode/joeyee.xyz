@@ -22,7 +22,7 @@ import VerifiedUser from "@material-ui/icons/VerifiedUser";
 import Fingerprint from "@material-ui/icons/Fingerprint";
 import InfoArea from "components/InfoArea/InfoArea.jsx";
 
-import landingPageStyle from "assets/jss/material-kit-react/containers/landingPage.jsx";
+import homePageStyle from "assets/jss/material-kit-react/containers/homePage.jsx";
 
 // NavPills
 import Camera from "@material-ui/icons/Camera";
@@ -34,13 +34,7 @@ import studio2 from "assets/img/examples/studio-2.jpg";
 import studio3 from "assets/img/examples/studio-3.jpg";
 import studio4 from "assets/img/examples/studio-4.jpg";
 
-import * as serviceWorker from "../serviceWorker";
-
 class HomePage extends React.Component {
-  componentDidMount() {
-    serviceWorker.register();
-  }
-
   render() {
     const { classes } = this.props;
     const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
@@ -167,4 +161,4 @@ function mapDispatchToProps(dispatch) {
     userActions: bindActionCreators(userActions, dispatch),
   }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(landingPageStyle)(HomePage));
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(homePageStyle)(HomePage));

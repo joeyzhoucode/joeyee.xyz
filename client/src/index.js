@@ -12,6 +12,8 @@ import Root from "./containers/Root.jsx";
 
 import "assets/scss/material-kit-react.scss?v=1.7.0";
 
+import * as serviceWorker from "./serviceWorker";
+
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const hist = createBrowserHistory();
 const store = createStore(
@@ -20,3 +22,4 @@ const store = createStore(
 );
 
 render(<Root store={store} history={hist} />, document.getElementById("root"));
+serviceWorker.register();

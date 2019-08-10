@@ -7,10 +7,6 @@ Rails.application.routes.draw do
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
 
-  get '*path', to: redirect('/login'), constraints: ->(request) do
-    request.session[:user_id].nil? && !request.xhr? && request.format.html?
-  end
-
   scope '/api' do
     get 'user', to: 'users#show'
     get 'groups/new', to: 'groups#new'
@@ -20,6 +16,6 @@ Rails.application.routes.draw do
   end
 
   get '*path', to: "application#index", constraints: ->(request) do
-    request.session[:user_id] && !request.xhr? && request.format.html?
+    !request.xhr? && request.format.html?
   end
 end

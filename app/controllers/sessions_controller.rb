@@ -1,4 +1,5 @@
-class SessionsController < ApplicationController
+class SessionsController < ActionController::Base
+  protect_from_forgery with: :exception, unless: -> { request.format.json? }
 
   def new
     redirect_to '/auth/google_oauth2'
