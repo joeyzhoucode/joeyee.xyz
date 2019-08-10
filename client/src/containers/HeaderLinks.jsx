@@ -33,7 +33,12 @@ class HeaderLinks extends React.Component {
     const AppInstall = this.props.home.installPrompt ? 
       <div
         className={classes.dropdownLink}
-        onClick={() => { this.props.home.installPrompt.prompt(); }}
+        onClick={() => {
+          this.props.home.installPrompt.prompt(); 
+          this.props.home.installPrompt.userChoice.then((_choice) => { 
+            this.props.homeActions.destroyInstallPrompt();
+          });
+        }}
       >
         <CloudDownload className={classes.icons} /> Install App
       </div> : <div></div>;

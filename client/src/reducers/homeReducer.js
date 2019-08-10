@@ -3,6 +3,7 @@ import webSocketConnection from "utils/webSocketConnection";
 import { MESSAGE_TYPE } from 'utils/webSocketConnection';
 import { 
   SAVE_INSTALL_PROMPT,
+  DESTROY_INSTALL_PROMPT,
   MESSENGER_FETCH_SUCCESS,
   MESSENGER_SUBSCRIBE,
   MESSENGER_UNSUBSCRIBE,
@@ -18,6 +19,12 @@ export default function home(state = initialState.home, action) {
       newState = {
         ...state,
         installPrompt: action.installPrompt,
+      }
+      return newState;
+    case DESTROY_INSTALL_PROMPT:
+      newState = {
+        ...state,
+        installPrompt: null,
       }
       return newState;
     case MESSENGER_FETCH_SUCCESS:
