@@ -8,7 +8,7 @@ import classNames from "classnames";
 // nodejs library to set properties for components
 import PropTypes from "prop-types";
 
-import HeaderLinks from "containers/HeaderLinks.jsx";
+import HeaderLinks from "components/Header/HeaderLinks.jsx";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
 import AppBar from "@material-ui/core/AppBar";

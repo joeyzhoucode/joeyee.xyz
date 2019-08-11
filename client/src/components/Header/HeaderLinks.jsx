@@ -91,9 +91,9 @@ class HeaderLinks extends React.Component {
               AuthenticationLink,
               <div
                 className={classes.dropdownLink}
-                onClick={() => { this.props.homeActions.historyPush('/components'); }}
+                onClick={() => { this.props.homeActions.historyPush('/app/joggl'); }}
               >
-                <CloudDownload className={classes.icons} /> Components
+                <CloudDownload className={classes.icons} /> Joggl
               </div>,
               InstallAppLink
             ]}

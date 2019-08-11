@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   scope '/api' do
     get 'user', to: 'users#show'
     get 'groups/new', to: 'groups#new'
+    get 'joggl/poi', to: 'joggl_app#poi'
     resources :groups
     resources :users
     resources :messages
