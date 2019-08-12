@@ -8,28 +8,17 @@ import * as jogglAppActions from "actions/jogglAppActions";
 import PropTypes from "prop-types";
 // nodejs library that concatenates classes
 import classNames from "classnames";
-// react components for routing our app without refresh
-import { Link } from "react-router-dom";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
 // @material-ui/icons
-
+import { Place, Schedule, BarChart, Settings } from "@material-ui/icons";
 // core components
 import Footer from "components/Footer/Footer.jsx";
 import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
-import Button from "components/CustomButtons/Button.jsx";
 import Parallax from "components/Parallax/Parallax.jsx";
+import NavPills from "components/NavPills/NavPills.jsx";
 // sections for this page
-import SectionBasics from "./Components/Sections/SectionBasics.jsx";
-import SectionNavbars from "./Components/Sections/SectionNavbars.jsx";
-import SectionTabs from "./Components/Sections/SectionTabs.jsx";
-import SectionPills from "./Components/Sections/SectionPills.jsx";
-import SectionNotifications from "./Components/Sections/SectionNotifications.jsx";
-import SectionTypography from "./Components/Sections/SectionTypography.jsx";
-import SectionJavascript from "./Components/Sections/SectionJavascript.jsx";
-import SectionCarousel from "./Components/Sections/SectionCarousel.jsx";
-import SectionCompletedExamples from "./Components/Sections/SectionCompletedExamples.jsx";
 
 import componentsStyle from "assets/jss/material-kit-react/containers/components.jsx";
 
@@ -52,20 +41,125 @@ class Joggl extends React.Component {
     const { classes } = this.props;
     return (
       <div>
+        <Parallax small image={require("assets/img/joggl-bg.jpg")}>
+          <div className={classes.container}>
+            <GridContainer>
+              <GridItem>
+                <div className={classes.brand}>
+                  <h1 className={classes.title}>Joggl</h1>
+                </div>
+              </GridItem>
+            </GridContainer>
+          </div>
+        </Parallax>
         <div className={classNames(classes.main, classes.mainRaised)}>
-          <SectionCarousel />
-          {JSON.stringify(this.props.jogglApp.poi ? Object.keys(this.props.jogglApp.poi) : {})}
-
-          {/* <SectionBasics />
-          <SectionNavbars />
-          <SectionTabs />
-          <SectionPills />
-          <SectionNotifications />
-          <SectionTypography />
-          <SectionJavascript />
-          <SectionCarousel />
-          <SectionCompletedExamples /> */}
-        </div>
+          <div className={classes.container}>
+              <div className={classes.section}>
+                <GridContainer justify="left">
+                  <GridItem xs={12} sm={12} md={12} lg={12}>
+                    <NavPills
+                      color="primary"
+                      tabs={[
+                        {
+                          tabButton: "Gyms",
+                          tabIcon: Place,
+                          tabContent: (
+                            <span>
+                              <p>
+                                {JSON.stringify(this.props.jogglApp.poi ? Object.keys(this.props.jogglApp.poi) : {})}
+                              </p>
+                              <br />
+                              <p>
+                                Dramatically visualize customer directed convergence
+                                without revolutionary ROI. Collaboratively
+                                administrate empowered markets via plug-and-play
+                                networks. Dynamically procrastinate B2C users after
+                                installed base benefits.
+                              </p>
+                            </span>
+                          )
+                        },
+                        {
+                          tabButton: "Workouts",
+                          tabIcon: Schedule,
+                          tabContent: (
+                            <span>
+                              <p>
+                                Efficiently unleash cross-media information without
+                                cross-media value. Quickly maximize timely
+                                deliverables for real-time schemas.
+                              </p>
+                              <br />
+                              <p>
+                                Dramatically maintain clicks-and-mortar solutions
+                                without functional solutions. Dramatically visualize
+                                customer directed convergence without revolutionary
+                                ROI. Collaboratively administrate empowered markets
+                                via plug-and-play networks. Dynamically
+                                procrastinate B2C users after installed base
+                                benefits.
+                              </p>
+                            </span>
+                          )
+                        },
+                        {
+                          tabButton: "Results",
+                          tabIcon: BarChart,
+                          tabContent: (
+                            <span>
+                              <p>
+                                Collaboratively administrate empowered markets via
+                                plug-and-play networks. Dynamically procrastinate
+                                B2C users after installed base benefits.
+                              </p>
+                              <br />
+                              <p>
+                                Dramatically visualize customer directed convergence
+                                without revolutionary ROI. Collaboratively
+                                administrate empowered markets via plug-and-play
+                                networks. Dynamically procrastinate B2C users after
+                                installed base benefits.
+                              </p>
+                            </span>
+                          )
+                        },
+                        {
+                          tabButton: "Settings",
+                          tabIcon: Settings,
+                          tabContent: (
+                            <span>
+                              <p>
+                                Collaboratively administrate empowered markets via
+                                plug-and-play networks. Dynamically procrastinate
+                                B2C users after installed base benefits.
+                              </p>
+                              <br />
+                              <p>
+                                Dramatically visualize customer directed convergence
+                                without revolutionary ROI. Collaboratively
+                                administrate empowered markets via plug-and-play
+                                networks. Dynamically procrastinate B2C users after
+                                installed base benefits.
+                              </p>
+                            </span>
+                          )
+                        }
+                      ]}
+                    />
+                  </GridItem>
+                </GridContainer>
+              </div>
+            </div>
+            {/* <SectionBasics />
+            <SectionNavbars />
+            <SectionTabs />
+            <SectionPills />
+            <SectionNotifications />
+            <SectionTypography />
+            <SectionJavascript />
+            <SectionCarousel />
+            <SectionCompletedExamples /> */}
+          </div>
         <Footer />
       </div>
     );
