@@ -1,5 +1,5 @@
 import { initialState } from './rootReducer';
-import { GYMS_FETCH_CALLBACK } from '../actions/energeeAppActions';
+import { GYMS_FETCH_CALLBACK, GYM_SELECT, PLAN_SELECT } from '../actions/energeeAppActions';
 
 export default function energeeApp(state = initialState.energeeApp, action) {
   let newState;
@@ -12,6 +12,18 @@ export default function energeeApp(state = initialState.energeeApp, action) {
           locations: action.data
         }
       }
+      return newState;
+    case GYM_SELECT:
+      newState = {
+        ...state,
+      }
+      newState.gyms.selectedGym = action.selectedGym;
+      return newState;
+    case PLAN_SELECT:
+      newState = {
+        ...state,
+      }
+      newState.programs[action.program].selectedPlan = action.selectedPlan;
       return newState;
     default:
       return state;

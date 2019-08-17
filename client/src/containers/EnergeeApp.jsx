@@ -55,7 +55,7 @@ class Energee extends React.Component {
                   control={
                     <Radio
                       checked={index === this.props.energeeApp.gyms.selectedGym}
-                      onClick={this.handleChangeEnabled}
+                      onClick={(_e) => this.props.energeeAppActions.gymSelect(index)}
                       value={gym}
                       name={gym}
                       aria-label={gym}
@@ -102,7 +102,7 @@ class Energee extends React.Component {
                         control={
                           <Radio
                             checked={index === this.props.energeeApp.programs[programType].selectedPlan}
-                            onClick={this.handleChangeEnabled}
+                            onClick={(_e) => this.props.energeeAppActions.planSelect(programType, index)}
                             value={plan.name}
                             name={plan.name}
                             aria-label={plan.name}
