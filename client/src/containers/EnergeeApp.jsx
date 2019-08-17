@@ -122,6 +122,22 @@ class Energee extends React.Component {
       </GridContainer>
     );
 
+    const exercisesTab = (
+      <GridContainer className={classes.container}>
+        <GridItem xs={12} sm={12} md={12} lg={12}>
+          <h3>Complete your exercises</h3>
+        </GridItem>
+      </GridContainer>
+    );
+
+    const resultsTab = (
+      <GridContainer className={classes.container}>
+        <GridItem xs={12} sm={12} md={12} lg={12}>
+          <h3>View your results</h3>
+        </GridItem>
+      </GridContainer>
+    );
+
     return (
       <div>
         <Parallax small image={require("assets/img/energee-bg.jpg")}>
@@ -156,46 +172,12 @@ class Energee extends React.Component {
                         {
                           tabButton: "Exercises",
                           tabIcon: Schedule,
-                          tabContent: (
-                            <span>
-                              <p>
-                                Efficiently unleash cross-media information without
-                                cross-media value. Quickly maximize timely
-                                deliverables for real-time schemas.
-                              </p>
-                              <br />
-                              <p>
-                                Dramatically maintain clicks-and-mortar solutions
-                                without functional solutions. Dramatically visualize
-                                customer directed convergence without revolutionary
-                                ROI. Collaboratively administrate empowered markets
-                                via plug-and-play networks. Dynamically
-                                procrastinate B2C users after installed base
-                                benefits.
-                              </p>
-                            </span>
-                          )
+                          tabContent: exercisesTab
                         },
                         {
                           tabButton: "Results",
                           tabIcon: BarChart,
-                          tabContent: (
-                            <span>
-                              <p>
-                                Collaboratively administrate empowered markets via
-                                plug-and-play networks. Dynamically procrastinate
-                                B2C users after installed base benefits.
-                              </p>
-                              <br />
-                              <p>
-                                Dramatically visualize customer directed convergence
-                                without revolutionary ROI. Collaboratively
-                                administrate empowered markets via plug-and-play
-                                networks. Dynamically procrastinate B2C users after
-                                installed base benefits.
-                              </p>
-                            </span>
-                          )
+                          tabContent: resultsTab
                         }
                       ]}
                     />
