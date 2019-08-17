@@ -7,7 +7,10 @@ export default function energeeApp(state = initialState.energeeApp, action) {
     case GYMS_FETCH_CALLBACK:
       newState = {
         ...state,
-        gyms: action.data
+        gyms: {
+          ...state.gyms,
+          locations: action.data
+        }
       }
       return newState;
     default:

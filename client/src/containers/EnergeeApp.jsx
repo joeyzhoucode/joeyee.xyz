@@ -21,6 +21,7 @@ import GridItem from "components/Grid/GridItem.jsx";
 import Parallax from "components/Parallax/Parallax.jsx";
 import NavPapers from "components/NavPills/NavPapers.jsx";
 // sections for this page
+import image from "assets/img/faces/avatar.jpg";
 
 import energeeAppStyle from "assets/jss/material-kit-react/containers/energeeAppPage.jsx";
 
@@ -42,25 +43,28 @@ class Energee extends React.Component {
   render() {
     const { classes } = this.props;
     const gymsTab = (
-      <GridContainer justify="left" className={classes.container}>
+      <GridContainer className={classes.container}>
         <GridItem xs={12} sm={12} md={12} lg={12}>
           <h3>Choose your gym</h3>
         </GridItem>
-        <GridItem xs={12} sm={12} md={12} lg={6}>
-          {Object.keys(this.props.energeeApp.gyms).map((gym, index) => {
-            console.log(this.props.energeeApp.gyms[gym]);
+        <GridItem xs={12} sm={12} md={6} lg={6}>
+          {Object.keys(this.props.energeeApp.gyms.locations).map((gym, index) => {
             return (
               <div className={classes.stackedRadio} key={gym}>
                 <FormControlLabel
                   control={
                     <Radio
-                      checked={index === 0}
+                      checked={index === this.props.energeeApp.gyms.selectedGym}
                       onClick={this.handleChangeEnabled}
                       value={gym}
                       name={gym}
                       aria-label={gym}
                       icon={<FiberManualRecord />}
                       checkedIcon={<FiberManualRecord />}
+                      disabled={
+                        this.props.energeeApp.gyms.locations[gym].opening_hours &&
+                        !this.props.energeeApp.gyms.locations[gym].opening_hours.open_now
+                      }
                     />
                   }
                   label={gym}
@@ -69,11 +73,18 @@ class Energee extends React.Component {
             );
           })}
         </GridItem>
+        <GridItem xs={12} sm={12} md={6} lg={6}>
+          <img
+            src={image}
+            alt="..."
+            className={classes.imgRaised}
+          />
+        </GridItem>
       </GridContainer>
     );
 
     const programsTab = (
-      <GridContainer justify="left" className={classes.container}>
+      <GridContainer className={classes.container}>
         <GridItem xs={12} sm={12} md={12} lg={12}>
           <h3>Choose your workout program</h3>
         </GridItem>
@@ -127,7 +138,7 @@ class Energee extends React.Component {
         <div className={classNames(classes.main, classes.mainRaised)}>
           <div className={classes.container}>
               <div className={classes.section}>
-                <GridContainer justify="left">
+                <GridContainer>
                   <GridItem xs={12} sm={12} md={12} lg={12}>
                     <NavPapers
                       color="primary"
@@ -143,7 +154,7 @@ class Energee extends React.Component {
                           tabContent: programsTab
                         },
                         {
-                          tabButton: "Excersizes",
+                          tabButton: "Exercises",
                           tabIcon: Schedule,
                           tabContent: (
                             <span>

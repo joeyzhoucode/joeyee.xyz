@@ -17,19 +17,20 @@ export const initialState = {
   },
   energeeApp: {
     gyms: {
+      locations: [],
       selectedGym: 0,
     },
     programs: {
       anaerobic: {
         plans: [
           {
+            name: "Push/Pull"
+          },
+          {
             name: "Starting Strengths"
           },
           {
             name: "Stronglifts"
-          },
-          {
-            name: "Push/Pull"
           },
         ],
         selectedPlan: 0

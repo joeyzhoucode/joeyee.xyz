@@ -1,6 +1,6 @@
 class EnergeeAppController < ApplicationController
   SEARCH_NEARBY_URI = "https://maps.googleapis.com/maps/api/place/nearbysearch/json"
-  SEARCH_NEARBY_RADIUS = "radius=250"
+  SEARCH_NEARBY_RADIUS = "radius=200"
   SEARCH_NEARBY_TYPE = "type=gym"
   SEARCH_NEARBY_KEY = "key=#{Rails.application.credentials[:google][:key]}"
 
