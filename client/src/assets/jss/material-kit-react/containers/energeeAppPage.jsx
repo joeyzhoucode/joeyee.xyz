@@ -1,6 +1,6 @@
 import { container } from "assets/jss/material-kit-react.jsx";
 
-const componentsStyle = {
+const energeeAppStyle = {
   container,
   brand: {
     color: "#FFFFFF",
@@ -33,7 +33,19 @@ const componentsStyle = {
   },
   textCenter: {
     textAlign: "center"
-  }
+  },
+  stackedRadio: {
+    position: "relative",
+    display: "block",
+    "&:first-child": {
+      marginTop: "10px"
+    },
+    "&:not(:first-child)": {
+      marginTop: "-14px"
+    },
+    marginTop: "0",
+    marginBottom: "0"
+  },
 };
 
-export default componentsStyle;
+export default energeeAppStyle;

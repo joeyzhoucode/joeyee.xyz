@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class JogglAppControllerTest < ActionDispatch::IntegrationTest
+class EnergeeAppControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

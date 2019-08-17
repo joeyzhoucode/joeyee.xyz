@@ -8,7 +8,7 @@ import Header from "containers/Header.jsx";
 import About from "containers/About.jsx";
 import Login from "containers/Login.jsx";
 import Components from "containers/Components/Components.jsx";
-import JogglApp from "containers/JogglApp.jsx";
+import EnergeeApp from "containers/EnergeeApp.jsx";
 import Home from "containers/Home.jsx";
 
 const Root = ({ store, history }) => (
@@ -19,7 +19,7 @@ const Root = ({ store, history }) => (
           <Route path="/about" component={About} />
           <Route path="/login" component={Login} />
           <Route path="/components" component={Components} />
-          <Route path="/app/joggl" component={JogglApp} />
+          <Route path="/app/energee" component={EnergeeApp} />
           <Route component={Home} />
         </Switch>
       </Header>

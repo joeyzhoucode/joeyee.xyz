@@ -13,7 +13,7 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 
 // @material-ui/icons
-import { Home, Person, Dashboard, Lock, LockOpen, CloudDownload } from "@material-ui/icons";
+import { Home, Person, Dashboard, Lock, LockOpen, CloudDownload, OfflineBoltOutlined } from "@material-ui/icons";
 
 // core components
 import CustomDropdown from "components/CustomDropdown/CustomDropdown.jsx";
@@ -91,9 +91,9 @@ class HeaderLinks extends React.Component {
               AuthenticationLink,
               <div
                 className={classes.dropdownLink}
-                onClick={() => { this.props.homeActions.historyPush('/app/joggl'); }}
+                onClick={() => { this.props.homeActions.historyPush('/app/energee'); }}
               >
-                <CloudDownload className={classes.icons} /> Joggl
+                <OfflineBoltOutlined className={classes.icons} /> Energee App
               </div>,
               InstallAppLink
             ]}

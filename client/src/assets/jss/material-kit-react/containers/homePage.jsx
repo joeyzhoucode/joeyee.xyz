@@ -24,7 +24,7 @@ const landingPageStyle = {
     margin: "10px auto 0"
   },
   main: {
-    background: "#272727",
+    background: "#1C1C1C",
     position: "relative",
     zIndex: "3"
   },

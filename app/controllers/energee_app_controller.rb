@@ -1,10 +1,10 @@
-class JogglAppController < ApplicationController
+class EnergeeAppController < ApplicationController
   SEARCH_NEARBY_URI = "https://maps.googleapis.com/maps/api/place/nearbysearch/json"
-  SEARCH_NEARBY_RADIUS = "radius=400"
+  SEARCH_NEARBY_RADIUS = "radius=250"
   SEARCH_NEARBY_TYPE = "type=gym"
   SEARCH_NEARBY_KEY = "key=#{Rails.application.credentials[:google][:key]}"
 
-  def poi
+  def gyms
     lat = params[:lat]
     lon = params[:lon]
     url = URI("#{SEARCH_NEARBY_URI}?location=#{lat},#{lon}&#{SEARCH_NEARBY_RADIUS}&#{SEARCH_NEARBY_TYPE}&#{SEARCH_NEARBY_KEY}")
