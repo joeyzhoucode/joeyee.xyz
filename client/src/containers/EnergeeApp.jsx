@@ -44,7 +44,7 @@ class Energee extends React.Component {
     const gymsTab = (
       <GridContainer className={classes.container}>
         <GridItem xs={12} sm={12} md={12} lg={12}>
-          <h3>Choose your gym</h3>
+          <h3 className={classes.subtitle}>Choose your gym</h3>
         </GridItem>
         <GridItem xs={12} sm={12} md={6} lg={6}>
           <img src={image} alt="..." className={classes.imgRaised} />
@@ -81,7 +81,7 @@ class Energee extends React.Component {
     const programsTab = (
       <GridContainer className={classes.container}>
         <GridItem xs={12} sm={12} md={12} lg={12}>
-          <h3>Choose your workout program</h3>
+          <h3 className={classes.subtitle}>Choose your workout program</h3>
         </GridItem>
         <GridItem xs={12} sm={12} md={6} lg={6}>
           <img src={image} alt="..." className={classes.imgRaised} />
@@ -114,7 +114,7 @@ class Energee extends React.Component {
     const exercisesTab = (
       <GridContainer className={classes.container}>
         <GridItem xs={12} sm={12} md={12} lg={12}>
-          <h3>Complete your exercises</h3>
+          <h3 className={classes.subtitle}>Complete your exercises</h3>
         </GridItem>
       </GridContainer>
     );
@@ -122,7 +122,7 @@ class Energee extends React.Component {
     const resultsTab = (
       <GridContainer className={classes.container}>
         <GridItem xs={12} sm={12} md={12} lg={12}>
-          <h3>View your results</h3>
+          <h3 className={classes.subtitle}>View your results</h3>
         </GridItem>
       </GridContainer>
     );
@@ -142,41 +142,40 @@ class Energee extends React.Component {
         </Parallax>
         <SexyContainer>
           <div className={classes.container}>
-              <div className={classes.section}>
-                <GridContainer>
-                  <GridItem xs={12} sm={12} md={12} lg={12}>
-                    <NavPapers
-                      color="primary"
-                      tabs={[
-                        {
-                          tabButton: "Gyms",
-                          tabIcon: LocationOn,
-                          tabContent: gymsTab
-                        },
-                        {
-                          tabButton: "Programs",
-                          tabIcon: List,
-                          tabContent: programsTab
-                        },
-                        {
-                          tabButton: "Exercises",
-                          tabIcon: Schedule,
-                          tabContent: exercisesTab
-                        },
-                        {
-                          tabButton: "Results",
-                          tabIcon: BarChart,
-                          tabContent: resultsTab
-                        }
-                      ]}
-                      alignCenter
-                    />
-                  </GridItem>
-                </GridContainer>
-              </div>
+            <div className={classes.section}>
+              <GridContainer>
+                <GridItem xs={12} sm={12} md={12} lg={12}>
+                  <NavPapers
+                    color="primary"
+                    tabs={[
+                      {
+                        tabButton: "Gyms",
+                        tabIcon: LocationOn,
+                        tabContent: gymsTab
+                      },
+                      {
+                        tabButton: "Programs",
+                        tabIcon: List,
+                        tabContent: programsTab
+                      },
+                      {
+                        tabButton: "Exercises",
+                        tabIcon: Schedule,
+                        tabContent: exercisesTab
+                      },
+                      {
+                        tabButton: "Results",
+                        tabIcon: BarChart,
+                        tabContent: resultsTab
+                      }
+                    ]}
+                    alignCenter
+                  />
+                </GridItem>
+              </GridContainer>
             </div>
-          </SexyContainer>
-        <Footer />
+          </div>
+        </SexyContainer>
       </div>
     );
   }

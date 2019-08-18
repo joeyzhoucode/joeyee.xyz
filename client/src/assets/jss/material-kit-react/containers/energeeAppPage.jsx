@@ -13,9 +13,8 @@ const energeeAppStyle = {
     position: "relative"
   },
   subtitle: {
-    fontSize: "1.313rem",
-    maxWidth: "500px",
-    margin: "10px 0 0"
+    marginBottom: "10px",
+    textAlign: "center"
   },
   link: {
     textDecoration: "none"
@@ -40,9 +39,10 @@ const energeeAppStyle = {
   },
   imgRaised: {
     maxWidth: "100%",
-    height: "auto",
+    height: "320px",
     borderRadius: "6px !important",
-    boxShadow: "0 5px 15px -8px rgba(0, 0, 0, 0.24), 0 8px 10px -5px rgba(0, 0, 0, 0.2)"
+    boxShadow: "0 5px 15px -8px rgba(0, 0, 0, 0.24), 0 8px 10px -5px rgba(0, 0, 0, 0.2)",
+    float: "right",
   },
 };
 

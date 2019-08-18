@@ -74,7 +74,6 @@ class Components extends React.Component {
           </GridItem>
           <SectionExamples />
         </div>
-        <Footer />
       </div>
     );
   }

@@ -9,9 +9,8 @@ import {
 
 const navPapersStyle = theme => ({
   root: {
-    marginTop: "20px",
+    margin: "0px",
     paddingLeft: "0",
-    marginBottom: "0",
     overflow: "visible !important",
     lineHeight: "24px",
     textTransform: "uppercase",
@@ -40,8 +39,8 @@ const navPapersStyle = theme => ({
     float: "left",
     position: "relative",
     display: "block",
-    borderRadius: "30px",
-    minWidth: "75px",
+    borderRadius: "20px",
+    minWidth: "72px",
     textAlign: "center",
     transition: "all .3s",
     padding: "5px",
@@ -49,16 +48,16 @@ const navPapersStyle = theme => ({
     height: "auto",
     opacity: "1",
     maxWidth: "100%",
-    margin: "0 5px"
+    margin: "0px 2px 5px 2px"
   },
   pillsWithIcons: {
     borderRadius: "4px"
   },
   tabIcon: {
-    width: "30px",
-    height: "30px",
+    width: "20px",
+    height: "20px",
     display: "block",
-    margin: "15px 0 !important",
+    margin: "0px !important",
     "&, & *": {
       letterSpacing: "normal !important"
     }

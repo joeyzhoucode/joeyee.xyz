@@ -97,13 +97,13 @@ class NavPapers extends React.Component {
     );
     return horizontal !== undefined ? (
       <GridContainer>
-        <GridItem {...horizontal.tabsGrid}>{tabButtons}</GridItem>
         <GridItem {...horizontal.contentGrid}>{tabContent}</GridItem>
+        <GridItem {...horizontal.tabsGrid}>{tabButtons}</GridItem>
       </GridContainer>
     ) : (
       <div>
-        {tabButtons}
         {tabContent}
+        {tabButtons}
       </div>
     );
   }

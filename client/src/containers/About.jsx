@@ -84,7 +84,6 @@ class AboutPage extends React.Component {
             </div>
           </div>
         </SexyContainer>
-        <Footer />
       </div>
     );
   }

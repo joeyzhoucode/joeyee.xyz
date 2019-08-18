@@ -139,7 +139,6 @@ class HomePage extends React.Component {
             </div>
           </div>
         </SexyContainer>
-        <Footer />
       </div>
     );
   }
