@@ -13,10 +13,9 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 
 // @material-ui/icons
-import { Home, Person, Dashboard, Lock, LockOpen, CloudDownload, OfflineBoltOutlined } from "@material-ui/icons";
+import { Home, Person, Lock, LockOpen, CloudDownload, OfflineBoltOutlined } from "@material-ui/icons";
 
 // core components
-import CustomDropdown from "components/CustomDropdown/CustomDropdown.jsx";
 import Button from "components/CustomButtons/Button.jsx";
 
 import headerLinksStyle from "assets/jss/material-kit-react/containers/headerLinksStyle.jsx";
@@ -26,23 +25,11 @@ class HeaderLinks extends React.Component {
     const { classes } = this.props;
 
     const userId = this.props.user.id;
-    const AuthenticationLink = userId ?
-      <a
-        className={classes.dropdownLink}
-        href="/logout"
-      >
-        <Lock className={classes.icons} /> Logout
-      </a> : 
-      <a
-        className={classes.dropdownLink}
-        href="/login"
-      >
-        <LockOpen className={classes.icons} /> Login
-      </a>;
 
-    const InstallAppLink = this.props.home.installPrompt ? 
-      <div
-        className={classes.dropdownLink}
+    const InstallAppLink = this.props.home.installPrompt ? (
+      <Button
+        color="transparent"
+        className={classes.navLink}
         onClick={() => {
           this.props.home.installPrompt.prompt(); 
           this.props.home.installPrompt.userChoice.then((_choice) => { 
@@ -51,53 +38,69 @@ class HeaderLinks extends React.Component {
         }}
       >
         <CloudDownload className={classes.icons} /> Install App
-      </div> : 
-      <div></div>;
+      </Button> 
+    ): null;
+
+    const HomeLink = (
+      <Button
+        color="transparent"
+        className={classes.navLink}
+        onClick={() => { this.props.homeActions.historyPush('/home'); }}
+      >
+        <Home className={classes.icons} /> Home
+      </Button>
+    );
+
+    const AboutLink = (
+      <Button
+        color="transparent"
+        className={classes.navLink}
+        onClick={() => { this.props.homeActions.historyPush('/about'); }}
+      >
+        <Person className={classes.icons} /> About Me
+      </Button>
+    );
+
+    const AuthenticationLink = (
+      <Button
+        color="transparent"
+        target="_blank"
+        rel="noopener"
+        className={classes.navLink}
+        href={ userId ? "/logout" : "/login" }
+      >
+        { userId ? <LockOpen className={classes.icons} /> :
+        <Lock className={classes.icons} /> }
+        { userId ? "Logout" : "Login" }
+      </Button>
+    );
+
+    const EnergeeAppLink = (
+      <Button
+        color="transparent"
+        className={classes.navLink}
+        onClick={() => { this.props.homeActions.historyPush('/app/energee'); }}
+      >
+        <OfflineBoltOutlined className={classes.icons} /> Energee App
+      </Button>
+    );
 
     return (
       <List className={classes.list}>
         <ListItem className={classes.listItem}>
-          <Button
-            color="transparent"
-            target="_blank"
-            rel="noopener"
-            className={classes.navLink}
-            onClick={() => { this.props.homeActions.historyPush('/home'); }}
-          >
-            <Home className={classes.icons} /> Home
-          </Button>
+          {InstallAppLink}
         </ListItem>
         <ListItem className={classes.listItem}>
-          <Button
-            color="transparent"
-            target="_blank"
-            rel="noopener"
-            className={classes.navLink}
-            onClick={() => { this.props.homeActions.historyPush('/about'); }}
-          >
-            <Person className={classes.icons} /> About Me
-          </Button>
+          {HomeLink}
         </ListItem>
         <ListItem className={classes.listItem}>
-          <CustomDropdown
-            noLiPadding
-            buttonText="Quick Access"
-            buttonProps={{
-              className: classes.navLink,
-              color: "transparent"
-            }}
-            buttonIcon={Dashboard}
-            dropdownList={[
-              AuthenticationLink,
-              <div
-                className={classes.dropdownLink}
-                onClick={() => { this.props.homeActions.historyPush('/app/energee'); }}
-              >
-                <OfflineBoltOutlined className={classes.icons} /> Energee App
-              </div>,
-              InstallAppLink
-            ]}
-          />
+          {AboutLink}
+        </ListItem>
+        <ListItem className={classes.listItem}>
+          {AuthenticationLink}
+        </ListItem>
+        <ListItem className={classes.listItem}>
+          {EnergeeAppLink}
         </ListItem>
       </List>
     );

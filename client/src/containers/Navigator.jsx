@@ -22,16 +22,18 @@ import Menu from "@material-ui/icons/Menu";
 // core components
 import headerStyle from "assets/jss/material-kit-react/components/headerStyle.jsx";
 
-class Header extends React.Component {
+class Navigator extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       mobileOpen: false
     };
   }
+
   handleDrawerToggle = () => {
     this.setState({ mobileOpen: !this.state.mobileOpen });
-  };
+  }
+
   headerColorChange = () => {
     const { classes } = this.props;
     if (window.pageYOffset > 100) {
@@ -49,24 +51,29 @@ class Header extends React.Component {
         .getElementsByTagName("header")[0]
         .classList.remove(classes["dark"]);
     }
-  };
+  }
+
   componentDidMount() {
     window.addEventListener("scroll", this.headerColorChange);
 
     this.props.userActions.userFetch();
+
     window.addEventListener('beforeinstallprompt', (e) => {
       this.props.homeActions.saveInstallPrompt(e);
     });
   }
+
   componentDidUpdate() {
     const userId = this.props.user.id;
     if(userId && !this.props.home.connection) {
       this.props.homeActions.messengerSubscribe(userId, "Global", data => { console.log(data); });
     }
   }
+
   componentWillUnmount() {
     window.removeEventListener("scroll", this.headerColorChange);
   }
+
   render() {
     const { classes, children } = this.props;
     const appBarClasses = classNames({
@@ -74,11 +81,16 @@ class Header extends React.Component {
       [classes.fixed]: true,
       [classes.color]: "transparent"
     });
-    const brandComponent = 
-      <div>
-        <Button className={classes.title} href="https://github.com/joeyzhoucode" target="_blank" rel="noopener">GitHub</Button> | 
-        <Button className={classes.title} href="https://linkedin.com/in/joeyzhoucode" target="_blank" rel="noopener">LinkedIn</Button>
-      </div>;
+
+    const brandComponent = (
+      <Button
+        className={classes.title} 
+        onClick={ () => { this.props.homeActions.historyPush('/'); }
+      }>
+        joeyee.xyz
+      </Button>
+    );
+
     return (
       <div>
         {children}
@@ -119,11 +131,11 @@ class Header extends React.Component {
   }
 }
 
-Header.defaultProp = {
+Navigator.defaultProp = {
   color: "transparent",
 };
 
-Header.propTypes = {
+Navigator.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
@@ -140,4 +152,4 @@ function mapDispatchToProps(dispatch) {
     userActions: bindActionCreators(userActions, dispatch),
   }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(headerStyle)(Header));
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(headerStyle)(Navigator));

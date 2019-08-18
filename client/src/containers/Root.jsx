@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 import { ConnectedRouter } from "connected-react-router";
 
-import Header from "containers/Header.jsx";
+import Navigator from "containers/Navigator.jsx";
 import About from "containers/About.jsx";
 import Login from "containers/Login.jsx";
 import Components from "containers/Components/Components.jsx";
@@ -14,7 +14,7 @@ import Home from "containers/Home.jsx";
 const Root = ({ store, history }) => (
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      <Header>
+      <Navigator>
         <Switch>
           <Route path="/about" component={About} />
           <Route path="/login" component={Login} />
@@ -22,7 +22,7 @@ const Root = ({ store, history }) => (
           <Route path="/app/energee" component={EnergeeApp} />
           <Route component={Home} />
         </Switch>
-      </Header>
+      </Navigator>
     </ConnectedRouter>
   </Provider>
 )
