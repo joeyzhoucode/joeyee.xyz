@@ -1,8 +1,7 @@
 const cardStyle = {
   card: {
-    border: "0",
-    marginBottom: "30px",
-    marginTop: "30px",
+    zIndex: "3",
+    margin: "-60px 15px 0px",
     borderRadius: "6px",
     color: "#BDBDBD",
     background: "#1C1C1C",

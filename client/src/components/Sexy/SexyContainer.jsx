@@ -1,7 +1,6 @@
 import React from "react";
 // nodejs library to set properties for components
 import PropTypes from "prop-types";
-import classNames from "classnames";
 
 // @material-ui/core components
 import { container } from "assets/jss/material-kit-react.jsx";
@@ -14,10 +13,6 @@ const style = {
     opacity: "0",
     transform: "translate3d(0, -60px, 0)"
   },
-  main: {
-    zIndex: "3",
-    margin: "-60px 15px 0px",
-  },
 };
 
 class SexyContainer extends React.Component {
@@ -29,7 +24,7 @@ class SexyContainer extends React.Component {
     };
   }
   componentDidMount() {
-    // we add a hidden class to the card and after 700 ms we delete it and the transition appears
+    // we add a hidden class to the card and after 400 ms we delete it and the transition appears
     setTimeout(
       function() {
         this.setState({ cardAnimaton: "" });
@@ -41,7 +36,7 @@ class SexyContainer extends React.Component {
   render() {
     const { classes, children, className, ...rest } = this.props;
     return (
-      <Card className={classes[this.state.cardAnimaton] + " " + classNames(classes.main)}>
+      <Card className={classes[this.state.cardAnimaton]}>
         {children}
       </Card>
     );
