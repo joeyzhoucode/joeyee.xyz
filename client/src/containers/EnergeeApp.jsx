@@ -169,6 +169,7 @@ class Energee extends React.Component {
                           tabContent: resultsTab
                         }
                       ]}
+                      alignCenter
                     />
                   </GridItem>
                 </GridContainer>

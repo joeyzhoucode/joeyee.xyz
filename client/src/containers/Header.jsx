@@ -34,7 +34,7 @@ class Header extends React.Component {
   };
   headerColorChange = () => {
     const { classes } = this.props;
-    if (window.pageYOffset > 200) {
+    if (window.pageYOffset > 100) {
       document.body
         .getElementsByTagName("header")[0]
         .classList.remove(classes["transparent"]);
