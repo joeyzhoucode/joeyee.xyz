@@ -13,7 +13,7 @@ import Tab from "@material-ui/core/Tab";
 // core components
 import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
-import SexyContainer from "components/Sexy/SexyContainer.jsx";
+import SexierContainer from "components/Sexy/SexierContainer.jsx";
 import navPapersStyle from "assets/jss/material-kit-react/components/navPapersStyle.jsx";
 
 class NavPapers extends React.Component {
@@ -87,9 +87,9 @@ class NavPapers extends React.Component {
         >
           {tabs.map((prop, key) => {
             return (
-              <SexyContainer className={classes.tabContent} key={key}>
+              <SexierContainer className={classes.tabContent} key={key}>
                 {prop.tabContent}
-              </SexyContainer>
+              </SexierContainer>
             );
           })}
         </SwipeableViews>

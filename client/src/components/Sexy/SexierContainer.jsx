@@ -12,8 +12,8 @@ import Card from "components/Card/Card.jsx";
 const style = {
   container,
   cardSexier: {
-    margin: "60px 15px 0px !important",
-    paddingBottom: "30px !important",
+    margin: "60px 15px 0px",
+    paddingBottom: "30px",
   },
   cardHidden: {
     opacity: "0",
@@ -26,14 +26,14 @@ class SexierContainer extends React.Component {
     super(props);
     // we use this to make the card to appear after the page has been rendered
     this.state = {
-      cardAnimaton: "cardHidden cardSexier"
+      cardAnimation: "cardHidden",
     };
   }
   componentDidMount() {
     // we add a hidden class to the card and after 400 ms we delete it and the transition appears
     setTimeout(
       function() {
-        this.setState({ cardAnimaton: "cardSexier" });
+        this.setState({ cardAnimation: "" });
       }.bind(this),
       400
     );
@@ -42,7 +42,7 @@ class SexierContainer extends React.Component {
   render() {
     const { classes, children, className, ...rest } = this.props;
     return (
-      <Card className={classes[this.state.cardAnimaton]}>
+      <Card className={classes[this.state.cardAnimation] + " " + classNames(classes.cardSexier)}>
         {children}
       </Card>
     );
