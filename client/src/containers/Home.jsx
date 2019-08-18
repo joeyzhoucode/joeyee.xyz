@@ -12,6 +12,7 @@ import withStyles from "@material-ui/core/styles/withStyles";
 
 // core components
 import Footer from "components/Footer/Footer.jsx";
+import SexyContainer from "components/Sexy/SexyContainer.jsx";
 import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
 import Parallax from "components/Parallax/Parallax.jsx";
@@ -50,7 +51,7 @@ class HomePage extends React.Component {
             </GridContainer>
           </div>
         </Parallax>
-        <div className={classNames(classes.main, classes.mainRaised)}>
+        <SexyContainer>
           <div className={classes.container}>
             <div className={classes.section}>
               <GridContainer justify="center">
@@ -137,7 +138,7 @@ class HomePage extends React.Component {
               </GridContainer>
             </div>
           </div>
-        </div>
+        </SexyContainer>
         <Footer />
       </div>
     );

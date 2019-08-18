@@ -6,8 +6,6 @@ import * as userActions from "actions/userActions";
 import * as energeeAppActions from "actions/energeeAppActions";
 // nodejs library to set properties for components
 import PropTypes from "prop-types";
-// nodejs library that concatenates classes
-import classNames from "classnames";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
@@ -16,6 +14,7 @@ import Radio from "@material-ui/core/Radio";
 import { LocationOn, List, Schedule, BarChart, FiberManualRecord } from "@material-ui/icons";
 // core components
 import Footer from "components/Footer/Footer.jsx";
+import SexyContainer from "components/Sexy/SexyContainer.jsx";
 import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
 import Parallax from "components/Parallax/Parallax.jsx";
@@ -37,7 +36,7 @@ class Energee extends React.Component {
       enableHighAccuracy: true,
       timeout: 5000,
       maximumAge: 0,
-    })
+    });
   }
 
   render() {
@@ -141,7 +140,7 @@ class Energee extends React.Component {
             </GridContainer>
           </div>
         </Parallax>
-        <div className={classNames(classes.main, classes.mainRaised)}>
+        <SexyContainer>
           <div className={classes.container}>
               <div className={classes.section}>
                 <GridContainer>
@@ -175,7 +174,7 @@ class Energee extends React.Component {
                 </GridContainer>
               </div>
             </div>
-          </div>
+          </SexyContainer>
         <Footer />
       </div>
     );
