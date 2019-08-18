@@ -17,32 +17,29 @@ export const initialState = {
   },
   energeeApp: {
     gyms: {
-      locations: [],
-      selectedGym: 0,
+      list: [],
+      selected: 0,
     },
     programs: {
-      anaerobic: {
-        plans: [
-          {
-            name: "Push/Pull"
-          },
-          {
-            name: "Starting Strengths"
-          },
-          {
-            name: "Stronglifts"
-          },
-        ],
-        selectedPlan: 0
-      },
-      aerobic: {
-        plans: [
-          {
-            name: "Couch to 5K"
-          }
-        ],
-        selectedPlan: 0
-      }
+      list: [
+        {
+          name: "Push/Pull/Legs",
+          type: "anaerobic"
+        },
+        {
+          name: "Starting Strengths",
+          type: "anaerobic"
+        },
+        {
+          name: "Stronglifts",
+          type: "anaerobic"
+        },
+        {
+          name: "Couch to 5K",
+          type: "aerobic"
+        }
+      ],
+      selected: 0,
     }
   },
 };

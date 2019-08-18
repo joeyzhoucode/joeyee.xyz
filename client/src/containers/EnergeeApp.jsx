@@ -48,13 +48,16 @@ class Energee extends React.Component {
           <h3>Choose your gym</h3>
         </GridItem>
         <GridItem xs={12} sm={12} md={6} lg={6}>
-          {Object.keys(this.props.energeeApp.gyms.locations).map((gym, index) => {
+          <img src={image} alt="..." className={classes.imgRaised} />
+        </GridItem>
+        <GridItem xs={12} sm={12} md={6} lg={6}>
+          {Object.keys(this.props.energeeApp.gyms.list).map((gym, index) => {
             return (
               <div className={classes.stackedRadio} key={gym}>
                 <FormControlLabel
                   control={
                     <Radio
-                      checked={index === this.props.energeeApp.gyms.selectedGym}
+                      checked={index === this.props.energeeApp.gyms.selected}
                       onClick={(_e) => this.props.energeeAppActions.gymSelect(index)}
                       value={gym}
                       name={gym}
@@ -62,8 +65,8 @@ class Energee extends React.Component {
                       icon={<FiberManualRecord />}
                       checkedIcon={<FiberManualRecord />}
                       disabled={
-                        this.props.energeeApp.gyms.locations[gym].opening_hours &&
-                        !this.props.energeeApp.gyms.locations[gym].opening_hours.open_now
+                        this.props.energeeApp.gyms.list[gym].opening_hours &&
+                        !this.props.energeeApp.gyms.list[gym].opening_hours.open_now
                       }
                     />
                   }
@@ -73,13 +76,6 @@ class Energee extends React.Component {
             );
           })}
         </GridItem>
-        <GridItem xs={12} sm={12} md={6} lg={6}>
-          <img
-            src={image}
-            alt="..."
-            className={classes.imgRaised}
-          />
-        </GridItem>
       </GridContainer>
     );
 
@@ -88,37 +84,31 @@ class Energee extends React.Component {
         <GridItem xs={12} sm={12} md={12} lg={12}>
           <h3>Choose your workout program</h3>
         </GridItem>
-        {Object.keys(this.props.energeeApp.programs).map((programType, _index) => {
-          return (
-            <GridItem xs={12} sm={6} md={6} lg={3} key={programType}>
-              <div className={classes.subtitle}>
-                <h5>{programType}</h5>
+        <GridItem xs={12} sm={12} md={6} lg={6}>
+          <img src={image} alt="..." className={classes.imgRaised} />
+        </GridItem>
+        <GridItem xs={12} sm={12} md={6} lg={6}>
+          {this.props.energeeApp.programs.list.map((program, index) => {
+            return (
+              <div className={classes.stackedRadio} key={program.name}>
+                <FormControlLabel
+                  control={
+                    <Radio
+                      checked={index === this.props.energeeApp.programs.selected}
+                      onClick={(_e) => this.props.energeeAppActions.programSelect(index)}
+                      value={program.name}
+                      name={program.name}
+                      aria-label={program.name}
+                      icon={<FiberManualRecord />}
+                      checkedIcon={<FiberManualRecord className={classes.radioChecked} />}
+                    />
+                  }
+                  label={program.name}
+                />
               </div>
-              {
-                this.props.energeeApp.programs[programType].plans.map((plan, index) => {
-                  return (
-                    <div className={classes.stackedRadio} key={index}>
-                      <FormControlLabel
-                        control={
-                          <Radio
-                            checked={index === this.props.energeeApp.programs[programType].selectedPlan}
-                            onClick={(_e) => this.props.energeeAppActions.planSelect(programType, index)}
-                            value={plan.name}
-                            name={plan.name}
-                            aria-label={plan.name}
-                            icon={<FiberManualRecord />}
-                            checkedIcon={<FiberManualRecord />}
-                          />
-                        }
-                        label={plan.name}
-                      />
-                    </div>
-                  );
-                })
-              }
-            </GridItem>
-          );
-        })}
+            );
+          })}
+        </GridItem>
       </GridContainer>
     );
 

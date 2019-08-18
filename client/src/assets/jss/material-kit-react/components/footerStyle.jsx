@@ -3,7 +3,7 @@ import { container, primaryColor } from "assets/jss/material-kit-react.jsx";
 const footerStyle = {
   block: {
     color: "inherit",
-    padding: "0.9375rem",
+    padding: "0.75rem",
     fontWeight: "500",
     fontSize: "12px",
     textTransform: "uppercase",
@@ -22,7 +22,7 @@ const footerStyle = {
     float: "right!important"
   },
   footer: {
-    padding: "0.9375rem 0",
+    padding: "0.75rem 0",
     textAlign: "center",
     display: "flex",
     zIndex: "2",

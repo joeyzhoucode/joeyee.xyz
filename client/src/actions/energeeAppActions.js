@@ -1,6 +1,6 @@
 export const GYMS_FETCH_CALLBACK = 'GYMS_FETCH_CALLBACK';
 export const GYM_SELECT = 'GYM_SELECT';
-export const PLAN_SELECT = 'PLAN_SELECT';
+export const PROGRAM_SELECT = 'PROGRAM_SELECT';
 
 export function gymsFetch(lat, lon) {
   return dispatch => {
@@ -21,10 +21,10 @@ export function gymsFetchCallback(data) {
   return { type: GYMS_FETCH_CALLBACK, data: data };
 }
 
-export function gymSelect(selectedGym) {
-  return { type: GYM_SELECT, selectedGym: selectedGym };
+export function gymSelect(selected) {
+  return { type: GYM_SELECT, selected: selected };
 }
 
-export function planSelect(program, selectedPlan) {
-  return { type: PLAN_SELECT, program: program, selectedPlan: selectedPlan };
+export function programSelect(selected) {
+  return { type: PROGRAM_SELECT, selected: selected };
 }

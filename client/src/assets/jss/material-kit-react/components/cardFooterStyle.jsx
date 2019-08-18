@@ -3,7 +3,7 @@ const cardFooterStyle = {
     display: "flex",
     alignItems: "center",
     backgroundColor: "transparent",
-    padding: "0.9375rem 1.875rem"
+    padding: "0.75rem 1.875rem"
   }
 };
 

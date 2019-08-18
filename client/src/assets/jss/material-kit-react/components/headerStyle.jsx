@@ -17,7 +17,7 @@ const headerStyle = {
     display: "flex",
     border: "0",
     borderRadius: "3px",
-    padding: "0.625rem 0",
+    padding: "0.325rem 0",
     marginBottom: "20px",
     width: "100%",
     backgroundColor: "transparent !important",
@@ -113,7 +113,7 @@ const headerStyle = {
   },
   white: {
     border: "0",
-    padding: "0.625rem 0",
+    padding: "0.325rem 0",
     marginBottom: "20px",
     color: "#555",
     backgroundColor: "#fff !important",
