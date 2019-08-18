@@ -129,53 +129,32 @@ class Energee extends React.Component {
 
     return (
       <div>
-        <Parallax small image={require("assets/img/energee-bg.jpg")}>
-          <div className={classes.container}>
-            <GridContainer>
-              <GridItem>
-                <div className={classes.brand}>
-                  <h1 className={classes.title}>Energee</h1>
-                </div>
-              </GridItem>
-            </GridContainer>
-          </div>
-        </Parallax>
-        <SexyContainer>
-          <div className={classes.container}>
-            <div className={classes.section}>
-              <GridContainer>
-                <GridItem xs={12} sm={12} md={12} lg={12}>
-                  <NavPapers
-                    color="primary"
-                    tabs={[
-                      {
-                        tabButton: "Gyms",
-                        tabIcon: LocationOn,
-                        tabContent: gymsTab
-                      },
-                      {
-                        tabButton: "Programs",
-                        tabIcon: List,
-                        tabContent: programsTab
-                      },
-                      {
-                        tabButton: "Exercises",
-                        tabIcon: Schedule,
-                        tabContent: exercisesTab
-                      },
-                      {
-                        tabButton: "Results",
-                        tabIcon: BarChart,
-                        tabContent: resultsTab
-                      }
-                    ]}
-                    alignCenter
-                  />
-                </GridItem>
-              </GridContainer>
-            </div>
-          </div>
-        </SexyContainer>
+        <NavPapers
+          color="primary"
+          tabs={[
+            {
+              tabButton: "Gyms",
+              tabIcon: LocationOn,
+              tabContent: gymsTab
+            },
+            {
+              tabButton: "Programs",
+              tabIcon: List,
+              tabContent: programsTab
+            },
+            {
+              tabButton: "Exercises",
+              tabIcon: Schedule,
+              tabContent: exercisesTab
+            },
+            {
+              tabButton: "Results",
+              tabIcon: BarChart,
+              tabContent: resultsTab
+            }
+          ]}
+          alignCenter
+        />
       </div>
     );
   }

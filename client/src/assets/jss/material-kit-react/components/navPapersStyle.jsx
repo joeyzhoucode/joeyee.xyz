@@ -16,9 +16,11 @@ const navPapersStyle = theme => ({
     textTransform: "uppercase",
     fontSize: "12px",
     fontWeight: "500",
-    position: "relative",
+    position: "fixed",
     display: "block",
-    color: "inherit"
+    color: "inherit",
+    bottom: "0",
+    width: "100%"
   },
   flexContainer: {
     [theme.breakpoints.down("xs")]: {
