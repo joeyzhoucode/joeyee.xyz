@@ -8,24 +8,16 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
-
+// @material-ui/icons
+import { Camera, Chat, Fingerprint, Palette, VerifiedUser } from "@material-ui/icons";
 // core components
 import SexyContainer from "components/Sexy/SexyContainer.jsx";
 import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
 import Parallax from "components/Parallax/Parallax.jsx";
-
-// Product Section
-import Chat from "@material-ui/icons/Chat";
-import VerifiedUser from "@material-ui/icons/VerifiedUser";
-import Fingerprint from "@material-ui/icons/Fingerprint";
 import InfoArea from "components/InfoArea/InfoArea.jsx";
 
 import homePageStyle from "assets/jss/material-kit-react/containers/homePage.jsx";
-
-// NavPills
-import Camera from "@material-ui/icons/Camera";
-import Palette from "@material-ui/icons/Palette";
 
 import NavPills from "components/NavPills/NavPills.jsx";
 import studio1 from "assets/img/examples/studio-1.jpg";

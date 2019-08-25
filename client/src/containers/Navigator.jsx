@@ -18,7 +18,7 @@ import {
   Hidden,
   IconButton,
   Toolbar,
-} from "@material-ui/core";
+  } from "@material-ui/core";
 // @material-ui/icons
 import Menu from "@material-ui/icons/Menu";
 // core components
@@ -33,9 +33,7 @@ class Navigator extends React.Component {
     };
   }
 
-  handleDrawerToggle = () => {
-    this.setState({ mobileOpen: !this.state.mobileOpen });
-  }
+  handleDrawerToggle = () => { this.setState({ mobileOpen: !this.state.mobileOpen }); }
 
   headerColorChange = () => {
     const { classes } = this.props;
@@ -73,9 +71,7 @@ class Navigator extends React.Component {
     }
   }
 
-  componentWillUnmount() {
-    window.removeEventListener("scroll", this.headerColorChange);
-  }
+  componentWillUnmount() { window.removeEventListener("scroll", this.headerColorChange); }
 
   render() {
     const { classes, children } = this.props;
