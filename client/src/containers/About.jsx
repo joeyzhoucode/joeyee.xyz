@@ -18,7 +18,7 @@ import Parallax from "components/Parallax/Parallax.jsx";
 
 import picture from "assets/img/faces/joey.webp";
 
-import aboutPageStyle from "assets/jss/material-kit-react/containers/aboutPage.jsx";
+import aboutStyle from "assets/jss/containers/aboutStyle.jsx";
 
 class AboutPage extends React.Component {
   render() {
@@ -50,7 +50,6 @@ class AboutPage extends React.Component {
                       <Button
                         justIcon 
                         link
-                        className={classes.margin5} 
                         href="https://github.com/joeyzhoucode"
                       >
                         <i className={"fab fa-github"} />
@@ -58,7 +57,6 @@ class AboutPage extends React.Component {
                       <Button
                         justIcon
                         link
-                        className={classes.margin5}
                         href="https://linkedin.com/in/joeyzhoucode"
                       >
                         <i className={"fab fa-linkedin"} />
@@ -98,4 +96,4 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(navigatorActions, dispatch);
 }
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(aboutPageStyle)(AboutPage));
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(aboutStyle)(AboutPage));

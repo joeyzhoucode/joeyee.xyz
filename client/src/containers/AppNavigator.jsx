@@ -11,6 +11,8 @@ import PropTypes from "prop-types";
 import withStyles from "@material-ui/core/styles/withStyles";
 import {
   AppBar,
+  BottomNavigation,
+  BottomNavigationAction,
   Button,
   Drawer,
   Hidden,
@@ -89,38 +91,13 @@ class Navigator extends React.Component {
 
     return (
       <div>
-        <AppBar className={ appBarClasses }>
-          <Toolbar className={ classes.container }>
-            { brandComponent }
-            <Hidden smDown implementation="css">
-              <HeaderLinks/>
-            </Hidden>
-            <Hidden mdUp>
-              <IconButton
-                color="inherit"
-                aria-label="open drawer"
-                onClick={ this.handleDrawerToggle }
-              >
-                <Menu />
-              </IconButton>
-            </Hidden>
-          </Toolbar>
-          <Hidden mdUp implementation="js">
-            <Drawer
-              variant="temporary"
-              anchor="right"
-              open={ this.state.mobileOpen }
-              classes={{ paper: classes.drawerPaper }}
-              onClose={ this.handleDrawerToggle }
-            >
-              <div className={ classes.appResponsive }>
-                <HeaderLinks/>
-              </div>
-            </Drawer>
-            
-          </Hidden>
-        </AppBar>
-        {children}
+        <Hidden mdUp implementation="js">
+          <BottomNavigation>
+            <BottomNavigationAction label="Recents" icon={ <Menu /> } />
+            <BottomNavigationAction label="Favorites" icon={ <Menu /> } />
+            <BottomNavigationAction label="Nearby" icon={ <Menu /> } />
+          </BottomNavigation>
+        </Hidden>
       </div>
     );
   }

@@ -17,7 +17,7 @@ import GridItem from "components/Grid/GridItem.jsx";
 import Parallax from "components/Parallax/Parallax.jsx";
 import InfoArea from "components/InfoArea/InfoArea.jsx";
 
-import homePageStyle from "assets/jss/material-kit-react/containers/homePage.jsx";
+import homeStyle from "assets/jss/containers/homeStyle.jsx";
 
 import NavPills from "components/NavPills/NavPills.jsx";
 import studio1 from "assets/img/examples/studio-1.jpg";
@@ -50,7 +50,7 @@ class HomePage extends React.Component {
                 </GridItem>
               </GridContainer>
               <GridContainer justify="center">
-                <GridItem xs={12} sm={12} md={12} className={classes.navWrapper}>
+                <GridItem xs={12} sm={12} md={12}>
                   <NavPills
                     alignCenter
                     color="primary"
@@ -145,4 +145,4 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(navigatorActions, dispatch);
 }
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(homePageStyle)(HomePage));
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(homeStyle)(HomePage));
