@@ -2,8 +2,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import * as homeActions from "actions/homeActions";
-import * as userActions from "actions/userActions";
+import * as navigatorActions from "actions/navigatorActions";
 // nodejs library to set properties for components
 import PropTypes from "prop-types";
 
@@ -26,14 +25,14 @@ class HeaderLinks extends React.Component {
 
     const userId = this.props.user.id;
 
-    const InstallAppLink = this.props.home.installPrompt ? (
+    const InstallAppLink = this.props.installPrompt ? (
       <Button
         color="transparent"
         className={classes.navLink}
         onClick={() => {
-          this.props.home.installPrompt.prompt(); 
-          this.props.home.installPrompt.userChoice.then((_choice) => { 
-            this.props.homeActions.destroyInstallPrompt();
+          this.props.installPrompt.prompt(); 
+          this.props.installPrompt.userChoice.then((_choice) => { 
+            this.props.destroyInstallPrompt();
           });
         }}
       >
@@ -45,7 +44,7 @@ class HeaderLinks extends React.Component {
       <Button
         color="transparent"
         className={classes.navLink}
-        onClick={() => { this.props.homeActions.historyPush('/home'); }}
+        onClick={() => { this.props.historyPush('/home'); }}
       >
         <Home className={classes.icons} /> Home
       </Button>
@@ -55,7 +54,7 @@ class HeaderLinks extends React.Component {
       <Button
         color="transparent"
         className={classes.navLink}
-        onClick={() => { this.props.homeActions.historyPush('/about'); }}
+        onClick={() => { this.props.historyPush('/about'); }}
       >
         <Person className={classes.icons} /> About Me
       </Button>
@@ -79,7 +78,7 @@ class HeaderLinks extends React.Component {
       <Button
         color="transparent"
         className={classes.navLink}
-        onClick={() => { this.props.homeActions.historyPush('/app/energee'); }}
+        onClick={() => { this.props.historyPush('/app/energee'); }}
       >
         <OfflineBoltOutlined className={classes.icons} /> Energee App
       </Button>
@@ -112,16 +111,11 @@ HeaderLinks.propTypes = {
 };
 
 function mapStateToProps(state) {
-  return {
-    home: state.home,
-    user: state.user,
-  };
+  return state.navigator;
 }
 
 function mapDispatchToProps(dispatch) {
-  return {
-    homeActions: bindActionCreators(homeActions, dispatch),
-    userActions: bindActionCreators(userActions, dispatch),
-  }
+  return bindActionCreators(navigatorActions, dispatch);
 }
+
 export default connect(mapStateToProps, mapDispatchToProps)(withStyles(headerLinksStyle)(HeaderLinks));

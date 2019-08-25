@@ -1,19 +1,19 @@
 import { combineReducers } from 'redux';
 import { connectRouter } from 'connected-react-router';
-import home from 'reducers/homeReducer';
-import user from 'reducers/userReducer';
+import navigator from 'reducers/navigatorReducer';
 import energeeApp from 'reducers/energeeAppReducer';
 
 export const initialState = {
-  home: {
+  navigator: {
+    connection: null,
     installPrompt: null,
-  },
-  user: {
-    id: null,
-    firstName: "Guest",
-    lastName: "User",
-    email: null,
-    image: null,
+    user: {
+      id: null,
+      firstName: "Guest",
+      lastName: "User",
+      email: null,
+      image: null,
+    },
   },
   energeeApp: {
     gyms: {
@@ -46,7 +46,6 @@ export const initialState = {
 
 export default(history) => combineReducers({
   router: connectRouter(history),
-  home,
-  user,
+  navigator,
   energeeApp,
 })

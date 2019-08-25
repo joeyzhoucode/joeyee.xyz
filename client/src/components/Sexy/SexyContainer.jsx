@@ -34,7 +34,7 @@ class SexyContainer extends React.Component {
   }
 
   render() {
-    const { classes, children, className, ...rest } = this.props;
+    const { classes, children } = this.props;
     return (
       <Card className={classes[this.state.cardAnimaton]}>
         {children}
@@ -49,8 +49,7 @@ SexyContainer.defaultProps = {
 
 SexyContainer.propTypes = {
   classes: PropTypes.object.isRequired,
-  children: PropTypes.node,
-  className: PropTypes.string
+  children: PropTypes.node
 };
 
 export default withStyles(style)(SexyContainer);

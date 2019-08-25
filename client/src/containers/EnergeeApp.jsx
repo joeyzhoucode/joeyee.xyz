@@ -1,23 +1,18 @@
 import React from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import * as homeActions from "actions/homeActions";
-import * as userActions from "actions/userActions";
+import * as navigatorActions from "actions/navigatorActions";
 import * as energeeAppActions from "actions/energeeAppActions";
 // nodejs library to set properties for components
 import PropTypes from "prop-types";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Radio from "@material-ui/core/Radio";
+import { FormControlLabel, Radio } from '@material-ui/core';
 // @material-ui/icons
 import { LocationOn, List, Schedule, BarChart, FiberManualRecord } from "@material-ui/icons";
 // core components
-import Footer from "components/Footer/Footer.jsx";
-import SexyContainer from "components/Sexy/SexyContainer.jsx";
 import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
-import Parallax from "components/Parallax/Parallax.jsx";
 import NavPapers from "components/NavPills/NavPapers.jsx";
 // sections for this page
 import image from "assets/img/faces/avatar.jpg";
@@ -166,16 +161,14 @@ Energee.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    home: state.home,
-    user: state.user,
+    navigator: state.navigator,
     energeeApp: state.energeeApp,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    homeActions: bindActionCreators(homeActions, dispatch),
-    userActions: bindActionCreators(userActions, dispatch),
+    navigatorActions: bindActionCreators(navigatorActions, dispatch),
     energeeAppActions: bindActionCreators(energeeAppActions, dispatch),
   }
 }

@@ -40,7 +40,7 @@ class SexierContainer extends React.Component {
   }
 
   render() {
-    const { classes, children, className, ...rest } = this.props;
+    const { classes, children } = this.props;
     return (
       <Card className={classes[this.state.cardAnimation] + " " + classNames(classes.cardSexier)}>
         {children}
@@ -55,8 +55,7 @@ SexierContainer.defaultProps = {
 
 SexierContainer.propTypes = {
   classes: PropTypes.object.isRequired,
-  children: PropTypes.node,
-  className: PropTypes.string
+  children: PropTypes.node
 };
 
 export default withStyles(style)(SexierContainer);

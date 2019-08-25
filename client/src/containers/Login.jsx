@@ -1,8 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import * as homeActions from "actions/homeActions";
-import * as userActions from "actions/userActions";
+import * as navigatorActions from "actions/navigatorActions";
 // nodejs library to set properties for components
 import PropTypes from "prop-types";
 // @material-ui/core components
@@ -163,16 +162,10 @@ LoginPage.propTypes = {
 };
 
 function mapStateToProps(state) {
-  return {
-    home: state.home,
-    user: state.user,
-  };
+  return state.navigator;
 }
 
 function mapDispatchToProps(dispatch) {
-  return {
-    homeActions: bindActionCreators(homeActions, dispatch),
-    userActions: bindActionCreators(userActions, dispatch),
-  }
+  return bindActionCreators(navigatorActions, dispatch);
 }
 export default connect(mapStateToProps, mapDispatchToProps)(withStyles(loginPageStyle)(LoginPage));

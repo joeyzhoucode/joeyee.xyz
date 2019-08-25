@@ -1,25 +1,28 @@
 import React from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import * as homeActions from "actions/homeActions";
-import * as userActions from "actions/userActions";
+import * as navigatorActions from "actions/navigatorActions";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // nodejs library to set properties for components
 import PropTypes from "prop-types";
 
-import HeaderLinks from "components/Header/HeaderLinks.jsx";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import IconButton from "@material-ui/core/IconButton";
-import Button from "@material-ui/core/Button";
-import Hidden from "@material-ui/core/Hidden";
-import Drawer from "@material-ui/core/Drawer";
+import {
+  AppBar,
+  BottomNavigation,
+  BottomNavigationAction,
+  Button,
+  Drawer,
+  Hidden,
+  IconButton,
+  Toolbar,
+} from "@material-ui/core";
 // @material-ui/icons
 import Menu from "@material-ui/icons/Menu";
 // core components
+import HeaderLinks from "components/Header/HeaderLinks.jsx";
 import headerStyle from "assets/jss/material-kit-react/components/headerStyle.jsx";
 
 class Navigator extends React.Component {
@@ -56,17 +59,17 @@ class Navigator extends React.Component {
   componentDidMount() {
     window.addEventListener("scroll", this.headerColorChange);
 
-    this.props.userActions.userFetch();
+    this.props.fetchUser();
 
     window.addEventListener('beforeinstallprompt', (e) => {
-      this.props.homeActions.saveInstallPrompt(e);
+      this.props.saveInstallPrompt(e);
     });
   }
 
   componentDidUpdate() {
     const userId = this.props.user.id;
-    if(userId && !this.props.home.connection) {
-      this.props.homeActions.messengerSubscribe(userId, "Global", data => { console.log(data); });
+    if(userId && !this.props.connection) {
+      this.props.subscribeChannel(userId, "Global", data => { console.log(data); });
     }
   }
 
@@ -84,8 +87,8 @@ class Navigator extends React.Component {
 
     const brandComponent = (
       <Button
-        className={classes.title} 
-        onClick={ () => { this.props.homeActions.historyPush('/'); }
+        className={ classes.title } 
+        onClick={ () => { this.props.historyPush('/'); }
       }>
         joeyee.xyz
       </Button>
@@ -94,9 +97,9 @@ class Navigator extends React.Component {
     return (
       <div>
         {children}
-        <AppBar className={appBarClasses}>
-          <Toolbar className={classes.container}>
-            {brandComponent}
+        <AppBar className={ appBarClasses }>
+          <Toolbar className={ classes.container }>
+            { brandComponent }
             <Hidden smDown implementation="css">
               <HeaderLinks/>
             </Hidden>
@@ -104,7 +107,7 @@ class Navigator extends React.Component {
               <IconButton
                 color="inherit"
                 aria-label="open drawer"
-                onClick={this.handleDrawerToggle}
+                onClick={ this.handleDrawerToggle }
               >
                 <Menu />
               </IconButton>
@@ -113,19 +116,25 @@ class Navigator extends React.Component {
           <Hidden mdUp implementation="js">
             <Drawer
               variant="temporary"
-              anchor={"right"}
-              open={this.state.mobileOpen}
-              classes={{
-                paper: classes.drawerPaper
-              }}
-              onClose={this.handleDrawerToggle}
+              anchor="right"
+              open={ this.state.mobileOpen }
+              classes={{ paper: classes.drawerPaper }}
+              onClose={ this.handleDrawerToggle }
             >
-              <div className={classes.appResponsive}>
+              <div className={ classes.appResponsive }>
                 <HeaderLinks/>
               </div>
             </Drawer>
+            
           </Hidden>
         </AppBar>
+        <Hidden mdUp implementation="js">
+          <BottomNavigation>
+            <BottomNavigationAction label="Recents" icon={ <Menu /> } />
+            <BottomNavigationAction label="Favorites" icon={ <Menu /> } />
+            <BottomNavigationAction label="Nearby" icon={ <Menu /> } />
+          </BottomNavigation>
+        </Hidden>
       </div>
     );
   }
@@ -140,16 +149,11 @@ Navigator.propTypes = {
 };
 
 function mapStateToProps(state) {
-  return {
-    home: state.home,
-    user: state.user,
-  };
+  return state.navigator
 }
 
 function mapDispatchToProps(dispatch) {
-  return {
-    homeActions: bindActionCreators(homeActions, dispatch),
-    userActions: bindActionCreators(userActions, dispatch),
-  }
+  return bindActionCreators(navigatorActions, dispatch)
 }
+
 export default connect(mapStateToProps, mapDispatchToProps)(withStyles(headerStyle)(Navigator));

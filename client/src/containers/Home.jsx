@@ -1,8 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import * as homeActions from "actions/homeActions";
-import * as userActions from "actions/userActions";
+import * as navigatorActions from "actions/navigatorActions";
 // nodejs library to set properties for components
 import PropTypes from "prop-types";
 // nodejs library that concatenates classes
@@ -11,7 +10,6 @@ import classNames from "classnames";
 import withStyles from "@material-ui/core/styles/withStyles";
 
 // core components
-import Footer from "components/Footer/Footer.jsx";
 import SexyContainer from "components/Sexy/SexyContainer.jsx";
 import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
@@ -149,16 +147,10 @@ HomePage.propTypes = {
 };
 
 function mapStateToProps(state) {
-  return {
-    home: state.home,
-    user: state.user,
-  };
+  return state.navigator;
 }
 
 function mapDispatchToProps(dispatch) {
-  return {
-    homeActions: bindActionCreators(homeActions, dispatch),
-    userActions: bindActionCreators(userActions, dispatch),
-  }
+  return bindActionCreators(navigatorActions, dispatch);
 }
 export default connect(mapStateToProps, mapDispatchToProps)(withStyles(homePageStyle)(HomePage));
