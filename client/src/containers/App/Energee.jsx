@@ -16,8 +16,6 @@ import GridItem from "components/Grid/GridItem.jsx";
 import CardAnimated from "components/Card/CardAnimated.jsx";
 import MobileNavigation from "components/MobileNavigation/MobileNavigation.jsx";
 // sections for this page
-import image from "assets/img/faces/avatar.jpg";
-
 import energeeStyle from "assets/jss/material-kit-react/containers/energeePage.jsx";
 
 class Energee extends React.Component {
@@ -43,7 +41,7 @@ class Energee extends React.Component {
           <h3 className={classes.subtitle}>Choose your gym</h3>
         </GridItem>
         <GridItem xs={12} sm={12} md={6} lg={6}>
-          <img src={image} alt="..." className={classes.imgRaised} />
+          Placeholder
         </GridItem>
         <GridItem xs={12} sm={12} md={6} lg={6}>
           {Object.keys(this.props.energee.gyms.list).map((gym, index) => {
@@ -80,7 +78,7 @@ class Energee extends React.Component {
           <h3 className={classes.subtitle}>Choose your workout program</h3>
         </GridItem>
         <GridItem xs={12} sm={12} md={6} lg={6}>
-          <img src={image} alt="..." className={classes.imgRaised} />
+          Placeholder
         </GridItem>
         <GridItem xs={12} sm={12} md={6} lg={6}>
           {this.props.energee.programs.list.map((program, index) => {
@@ -126,7 +124,7 @@ class Energee extends React.Component {
     return (
       <div>
         <CardAnimated>
-          { programsTab }
+          { gymsTab }
           { programsTab }
           { exercisesTab }
           { resultsTab }

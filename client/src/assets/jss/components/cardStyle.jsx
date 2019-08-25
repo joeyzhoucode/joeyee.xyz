@@ -5,7 +5,7 @@ import {
 
 const cardStyle = {
   card: {
-    margin: "75px 15px 15px",
+    margin: "180px 15px 90px",
     borderRadius: "6px",
     position: "relative",
     display: "flex",
@@ -19,7 +19,7 @@ const cardStyle = {
     ...elevation01
   },
   cardParallax: {
-    margin: "-60px 15px 20px !important",
+    margin: "-60px 15px 15px !important",
   },
   cardPlain: {
     background: "transparent",
