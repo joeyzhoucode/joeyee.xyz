@@ -5,7 +5,7 @@ import {
 
 const cardStyle = {
   card: {
-    margin: "180px 15px 90px",
+    margin: "120px 15px 60px",
     borderRadius: "6px",
     position: "relative",
     display: "flex",
