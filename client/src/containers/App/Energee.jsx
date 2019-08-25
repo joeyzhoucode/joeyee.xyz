@@ -2,27 +2,28 @@ import React from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as navigatorActions from "actions/navigatorActions";
-import * as energeeAppActions from "actions/energeeAppActions";
+import * as energeeActions from "actions/energeeActions";
 // nodejs library to set properties for components
 import PropTypes from "prop-types";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
 import { FormControlLabel, Radio } from '@material-ui/core';
 // @material-ui/icons
-import { LocationOn, List, Schedule, BarChart, FiberManualRecord } from "@material-ui/icons";
+import { FiberManualRecord } from "@material-ui/icons";
 // core components
 import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
-import NavPapers from "components/NavPills/NavPapers.jsx";
+import CardAnimated from "components/Card/CardAnimated.jsx";
+import MobileNavigation from "components/MobileNavigation/MobileNavigation.jsx";
 // sections for this page
 import image from "assets/img/faces/avatar.jpg";
 
-import energeeAppStyle from "assets/jss/material-kit-react/containers/energeeAppPage.jsx";
+import energeeStyle from "assets/jss/material-kit-react/containers/energeePage.jsx";
 
 class Energee extends React.Component {
   componentDidMount() {
     const geoSuccess = (pos) => {
-      this.props.energeeAppActions.gymsFetch(pos.coords.latitude, pos.coords.longitude);
+      this.props.energeeActions.gymsFetch(pos.coords.latitude, pos.coords.longitude);
     }
     const geoError = (err) => {
       console.log(err.message);
@@ -45,22 +46,22 @@ class Energee extends React.Component {
           <img src={image} alt="..." className={classes.imgRaised} />
         </GridItem>
         <GridItem xs={12} sm={12} md={6} lg={6}>
-          {Object.keys(this.props.energeeApp.gyms.list).map((gym, index) => {
+          {Object.keys(this.props.energee.gyms.list).map((gym, index) => {
             return (
               <div className={classes.stackedRadio} key={gym}>
                 <FormControlLabel
                   control={
                     <Radio
-                      checked={index === this.props.energeeApp.gyms.selected}
-                      onClick={(_e) => this.props.energeeAppActions.gymSelect(index)}
+                      checked={index === this.props.energee.gyms.selected}
+                      onClick={(_e) => this.props.energeeActions.gymSelect(index)}
                       value={gym}
                       name={gym}
                       aria-label={gym}
                       icon={<FiberManualRecord />}
                       checkedIcon={<FiberManualRecord />}
                       disabled={
-                        this.props.energeeApp.gyms.list[gym].opening_hours &&
-                        !this.props.energeeApp.gyms.list[gym].opening_hours.open_now
+                        this.props.energee.gyms.list[gym].opening_hours &&
+                        !this.props.energee.gyms.list[gym].opening_hours.open_now
                       }
                     />
                   }
@@ -82,14 +83,14 @@ class Energee extends React.Component {
           <img src={image} alt="..." className={classes.imgRaised} />
         </GridItem>
         <GridItem xs={12} sm={12} md={6} lg={6}>
-          {this.props.energeeApp.programs.list.map((program, index) => {
+          {this.props.energee.programs.list.map((program, index) => {
             return (
               <div className={classes.stackedRadio} key={program.name}>
                 <FormControlLabel
                   control={
                     <Radio
-                      checked={index === this.props.energeeApp.programs.selected}
-                      onClick={(_e) => this.props.energeeAppActions.programSelect(index)}
+                      checked={index === this.props.energee.programs.selected}
+                      onClick={(_e) => this.props.energeeActions.programSelect(index)}
                       value={program.name}
                       name={program.name}
                       aria-label={program.name}
@@ -124,32 +125,13 @@ class Energee extends React.Component {
 
     return (
       <div>
-        <NavPapers
-          color="primary"
-          tabs={[
-            {
-              tabButton: "Gyms",
-              tabIcon: LocationOn,
-              tabContent: gymsTab
-            },
-            {
-              tabButton: "Programs",
-              tabIcon: List,
-              tabContent: programsTab
-            },
-            {
-              tabButton: "Exercises",
-              tabIcon: Schedule,
-              tabContent: exercisesTab
-            },
-            {
-              tabButton: "Results",
-              tabIcon: BarChart,
-              tabContent: resultsTab
-            }
-          ]}
-          alignCenter
-        />
+        <CardAnimated>
+          { programsTab }
+          { programsTab }
+          { exercisesTab }
+          { resultsTab }
+        </CardAnimated>
+        <MobileNavigation />
       </div>
     );
   }
@@ -162,14 +144,14 @@ Energee.propTypes = {
 function mapStateToProps(state) {
   return {
     navigator: state.navigator,
-    energeeApp: state.energeeApp,
+    energee: state.energee,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
     navigatorActions: bindActionCreators(navigatorActions, dispatch),
-    energeeAppActions: bindActionCreators(energeeAppActions, dispatch),
+    energeeActions: bindActionCreators(energeeActions, dispatch),
   }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(energeeAppStyle)(Energee));
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(energeeStyle)(Energee));

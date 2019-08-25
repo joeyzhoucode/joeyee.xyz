@@ -8,7 +8,7 @@ import {
   drawerWidth
 } from "assets/jss/globalStyles.jsx";
 
-const headerStyle = {
+const navigatorStyle = {
   appBar: {
     display: "flex",
     border: "0",
@@ -87,4 +87,4 @@ const headerStyle = {
   }
 };
 
-export default headerStyle;
+export default navigatorStyle;

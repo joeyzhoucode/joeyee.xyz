@@ -5,17 +5,17 @@ import classNames from "classnames";
 import PropTypes from "prop-types";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
-// @material-ui/icons
 
 // core components
-import cardStyle from "assets/jss/material-kit-react/components/cardStyle.jsx";
+import cardStyle from "assets/jss/components/cardStyle.jsx";
 
 function Card({ ...props }) {
-  const { classes, className, children, plain, carousel, ...rest } = props;
+  const { classes, className, children, plain, carousel, parallax, ...rest } = props;
   const cardClasses = classNames({
     [classes.card]: true,
     [classes.cardPlain]: plain,
     [classes.cardCarousel]: carousel,
+    [classes.cardParallax]: parallax,
     [className]: className !== undefined
   });
   return (
@@ -30,7 +30,8 @@ Card.propTypes = {
   className: PropTypes.string,
   plain: PropTypes.bool,
   carousel: PropTypes.bool,
-  children: PropTypes.node
+  children: PropTypes.node,
+  parallax: PropTypes.bool,
 };
 
 export default withStyles(cardStyle)(Card);

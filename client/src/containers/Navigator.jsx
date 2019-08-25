@@ -16,7 +16,7 @@ import {
   Hidden,
   IconButton,
   Toolbar,
-  } from "@material-ui/core";
+} from "@material-ui/core";
 // @material-ui/icons
 import Menu from "@material-ui/icons/Menu";
 // core components
@@ -117,7 +117,6 @@ class Navigator extends React.Component {
                 <HeaderLinks/>
               </div>
             </Drawer>
-            
           </Hidden>
         </AppBar>
         {children}

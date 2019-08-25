@@ -74,7 +74,7 @@ class HeaderLinks extends React.Component {
       </Button>
     );
 
-    const EnergeeAppLink = (
+    const EnergeeLink = (
       <Button
         color="transparent"
         className={classes.navLink}
@@ -99,7 +99,7 @@ class HeaderLinks extends React.Component {
           {AuthenticationLink}
         </ListItem>
         <ListItem className={classes.listItem}>
-          {EnergeeAppLink}
+          {EnergeeLink}
         </ListItem>
       </List>
     );

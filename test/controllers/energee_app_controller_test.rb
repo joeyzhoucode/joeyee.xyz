@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class EnergeeAppControllerTest < ActionDispatch::IntegrationTest
+class EnergeeControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

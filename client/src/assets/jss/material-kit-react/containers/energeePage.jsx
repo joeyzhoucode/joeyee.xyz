@@ -1,6 +1,6 @@
 import { container, primaryColor } from "assets/jss/material-kit-react.jsx";
 
-const energeeAppStyle = {
+const energeeStyle = {
   container,
   brand: {
     color: "#FFFFFF",
@@ -46,4 +46,4 @@ const energeeAppStyle = {
   },
 };
 
-export default energeeAppStyle;
+export default energeeStyle;

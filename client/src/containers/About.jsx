@@ -11,7 +11,7 @@ import withStyles from "@material-ui/core/styles/withStyles";
 
 // core components
 import Button from "components/CustomButtons/Button.jsx";
-import SexyContainer from "components/Sexy/SexyContainer.jsx";
+import CardAnimated from "components/Card/CardAnimated.jsx";
 import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
 import Parallax from "components/Parallax/Parallax.jsx";
@@ -31,7 +31,7 @@ class AboutPage extends React.Component {
     return (
       <div>
         <Parallax small filter image={require("assets/img/profile-bg.webp")} />
-        <SexyContainer>
+        <CardAnimated parallax>
           <div>
             <div className={classes.container}>
               <GridContainer justify="center">
@@ -79,7 +79,7 @@ class AboutPage extends React.Component {
               </GridContainer>
             </div>
           </div>
-        </SexyContainer>
+        </CardAnimated>
       </div>
     );
   }

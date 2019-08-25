@@ -11,7 +11,7 @@ import withStyles from "@material-ui/core/styles/withStyles";
 // @material-ui/icons
 import { Camera, Chat, Fingerprint, Palette, VerifiedUser } from "@material-ui/icons";
 // core components
-import SexyContainer from "components/Sexy/SexyContainer.jsx";
+import CardAnimated from "components/Card/CardAnimated.jsx";
 import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
 import Parallax from "components/Parallax/Parallax.jsx";
@@ -41,7 +41,7 @@ class HomePage extends React.Component {
             </GridContainer>
           </div>
         </Parallax>
-        <SexyContainer>
+        <CardAnimated parallax>
           <div className={classes.container}>
             <div className={classes.section}>
               <GridContainer justify="center">
@@ -128,7 +128,7 @@ class HomePage extends React.Component {
               </GridContainer>
             </div>
           </div>
-        </SexyContainer>
+        </CardAnimated>
       </div>
     );
   }
