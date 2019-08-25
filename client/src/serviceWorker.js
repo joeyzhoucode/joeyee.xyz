@@ -41,8 +41,11 @@ export function register(config) {
       const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
 
       if (isAuthentication) {
-        unregister();
-        window.location.reload();
+        navigator.serviceWorker.ready.then(registration => {
+          registration.unregister().then(() => {
+            window.location.reload();
+          });
+        });
       }
 
       if (isLocalhost) {
