@@ -96,7 +96,7 @@ class LoginPage extends React.Component {
             <CardAnimated>
               <form className={classes.form}>
                 <CardHeader color="primary" className={classes.cardHeader}>
-                  <h4> { redirecting ? "Redirecting...": "Login" } </h4>
+                  <h4> { redirecting ? "Redirecting..." : "Login" } </h4>
                   <div className={classes.socialLine}>
                     <Button
                       justIcon

@@ -54,7 +54,7 @@ class Energee extends React.Component {
                         name={gym}
                         aria-label={gym}
                         icon={<FiberManualRecord />}
-                        checkedIcon={<FiberManualRecord />}
+                        checkedIcon={<FiberManualRecord className={classes.radioChecked} />}
                         disabled={
                           this.props.energee.gyms.list[gym].opening_hours &&
                           !this.props.energee.gyms.list[gym].opening_hours.open_now
@@ -120,7 +120,7 @@ class Energee extends React.Component {
       <CardAnimated>
         <GridContainer className={classes.container}>
           <GridItem xs={12} sm={12} md={12} lg={12}>
-            <h3 className={classes.subtitle}>View your results</h3>
+            <h3 className={classes.subtitle}>Track your results</h3>
           </GridItem>
         </GridContainer>
       </CardAnimated>
