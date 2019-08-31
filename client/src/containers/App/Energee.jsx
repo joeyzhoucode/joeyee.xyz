@@ -1,21 +1,18 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as navigatorActions from "actions/navigatorActions";
 import * as energeeActions from "actions/energeeActions";
-// nodejs library to set properties for components
-import PropTypes from "prop-types";
-// @material-ui/core components
-import withStyles from "@material-ui/core/styles/withStyles";
 import { FormControlLabel, Radio } from '@material-ui/core';
-// @material-ui/icons
 import { LocationOn, List, Schedule, BarChart, FiberManualRecord } from "@material-ui/icons";
-// core components
+
 import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
 import CardAnimated from "components/Card/CardAnimated.jsx";
-import MobileNavigator from "components/MobileNavigator/MobileNavigator.jsx";
-// sections for this page
+import MobileNavigator from "containers/App/MobileNavigator.jsx";
+
+import withStyles from "@material-ui/core/styles/withStyles";
 import energeeStyle from "assets/jss/material-kit-react/containers/energeePage.jsx";
 
 class Energee extends React.Component {

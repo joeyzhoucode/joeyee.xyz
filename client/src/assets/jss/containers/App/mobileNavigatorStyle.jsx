@@ -18,7 +18,7 @@ const mobileNavigatorStyle = {
     color: onBackgroundColor,
     ...elevation04
   },
-  animated: {
+  animatedRoot: {
     opacity: "0",
     transform: "translate3d(0, 60px, 0)",
     display: "flex",

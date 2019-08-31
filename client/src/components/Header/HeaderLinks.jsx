@@ -1,22 +1,23 @@
-/*eslint-disable*/
 import React from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as navigatorActions from "actions/navigatorActions";
-// nodejs library to set properties for components
-import PropTypes from "prop-types";
 
-// @material-ui/core components
-import withStyles from "@material-ui/core/styles/withStyles";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
+import { 
+  Home,
+  Person,
+  Lock,
+  LockOpen,
+  CloudDownload,
+  OfflineBoltOutlined 
+} from "@material-ui/icons";
 
-// @material-ui/icons
-import { Home, Person, Lock, LockOpen, CloudDownload, OfflineBoltOutlined } from "@material-ui/icons";
-
-// core components
 import Button from "components/CustomButtons/Button.jsx";
 
+import withStyles from "@material-ui/core/styles/withStyles";
 import headerLinksStyle from "assets/jss/material-kit-react/containers/headerLinksStyle.jsx";
 
 class HeaderLinks extends React.Component {
@@ -24,21 +25,6 @@ class HeaderLinks extends React.Component {
     const { classes } = this.props;
 
     const userId = this.props.user.id;
-
-    const InstallAppLink = this.props.installPrompt ? (
-      <Button
-        color="transparent"
-        className={classes.navLink}
-        onClick={() => {
-          this.props.installPrompt.prompt(); 
-          this.props.installPrompt.userChoice.then((_choice) => { 
-            this.props.destroyInstallPrompt();
-          });
-        }}
-      >
-        <CloudDownload className={classes.icons} /> Install App
-      </Button> 
-    ): null;
 
     const HomeLink = (
       <Button
@@ -74,6 +60,21 @@ class HeaderLinks extends React.Component {
       </Button>
     );
 
+    const InstallAppLink = this.props.installPrompt ? (
+      <Button
+        color="transparent"
+        className={classes.navLink}
+        onClick={() => {
+          this.props.installPrompt.prompt(); 
+          this.props.installPrompt.userChoice.then((_choice) => { 
+            this.props.destroyInstallPrompt();
+          });
+        }}
+      >
+        <CloudDownload className={classes.icons} /> Install App
+      </Button> 
+    ): null;
+
     const EnergeeLink = (
       <Button
         color="transparent"
@@ -87,19 +88,19 @@ class HeaderLinks extends React.Component {
     return (
       <List className={classes.list}>
         <ListItem className={classes.listItem}>
-          {InstallAppLink}
-        </ListItem>
-        <ListItem className={classes.listItem}>
           {HomeLink}
         </ListItem>
         <ListItem className={classes.listItem}>
           {AboutLink}
         </ListItem>
         <ListItem className={classes.listItem}>
+          {EnergeeLink}
+        </ListItem>
+        <ListItem className={classes.listItem}>
           {AuthenticationLink}
         </ListItem>
         <ListItem className={classes.listItem}>
-          {EnergeeLink}
+          {InstallAppLink}
         </ListItem>
       </List>
     );

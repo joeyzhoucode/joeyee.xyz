@@ -1,42 +1,37 @@
 import React from "react";
+import PropTypes from "prop-types";
+import { Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as navigatorActions from "actions/navigatorActions";
-import { Route, Redirect } from "react-router-dom";
-// nodejs library to set properties for components
-import PropTypes from "prop-types";
-
-// @material-ui/core components
-import withStyles from "@material-ui/core/styles/withStyles";
 
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-// core components
-import mobileNavigatorStyle from "assets/jss/components/mobileNavigatorStyle.jsx";
+
+import withStyles from "@material-ui/core/styles/withStyles";
+import mobileNavigatorStyle from "assets/jss/containers/App/mobileNavigatorStyle.jsx";
 
 class MobileNavigator extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       active: props.active,
-      style: this.props.classes.animated
+      animatedStyle: this.props.classes.animatedRoot
     }
   }
 
   componentDidMount() {
-    // we add a hidden class to the card and after 400 ms we delete it and the transition appears
     setTimeout(
-      function() {
-        this.setState({ style: this.props.classes.root });
-      }.bind(this),
+      function() { this.setState({ animatedStyle: this.props.classes.root }); }.bind(this),
       400
     );
   }
 
   handleChange = (_event, active) => {
-    this.props.navigatorActions.pushHistory(this.props.root + this.props.actions[active].route);
+    this.props.pushHistory(this.props.root + this.props.actions[active].route);
     this.setState({ active });
   };
+
   render() {
     const { actions, classes, root } = this.props;
 
@@ -44,20 +39,14 @@ class MobileNavigator extends React.Component {
       <div>
         { 
           actions.map((action, key) => {
-            return (
-              <Route
-                key={key}
-                path={root + action.route}
-                render={action.content}
-              />
-            )
+            return (<Route key={key} path={root + action.route} render={action.content} />)
           })
         }
-        <Redirect exact from="/" to={root + actions[0].route} />
+        <Redirect exact from={root} to={root + actions[0].route} />
         <BottomNavigation
           value={this.state.active}
           onChange={this.handleChange}
-          classes={{ root: this.state.style }}
+          classes={{ root: this.state.animatedStyle }}
         >
           { 
             actions.map((action, key) => {
@@ -82,6 +71,7 @@ class MobileNavigator extends React.Component {
 
 MobileNavigator.defaultProps = {
   active: 0,
+  animatedStyle: null
 };
 
 MobileNavigator.propTypes = {
@@ -97,14 +87,11 @@ MobileNavigator.propTypes = {
 };
 
 function mapStateToProps(state) {
-  return {
-    navigator: state.navigator,
-  };
+  return state.navigator;
 }
 
 function mapDispatchToProps(dispatch) {
-  return {
-    navigatorActions: bindActionCreators(navigatorActions, dispatch),
-  }
+  return bindActionCreators(navigatorActions, dispatch);
 }
+
 export default connect(mapStateToProps, mapDispatchToProps)(withStyles(mobileNavigatorStyle)(MobileNavigator));
