@@ -22,6 +22,7 @@ class Root extends React.Component {
             <Switch>
               <Route path="/about" component={About} />
               <Route path="/login" component={Login} />
+              <Route path="/logout" component={Login} />
               <Route path="/components" component={Components} />
               <Route path="/app">
                 <Route path="/app/energee" component={Energee} />
