@@ -46,7 +46,7 @@ const headerLinksStyle = theme => ({
     borderRadius: "3px",
     lineHeight: "20px",
     textDecoration: "none",
-    margin: "0px",
+    margin: "0px 1px",
     display: "inline-flex",
     "&:hover,&:focus": {
       color: "inherit",
@@ -71,7 +71,7 @@ const headerLinksStyle = theme => ({
     textTransform: "uppercase",
     lineHeight: "20px",
     textDecoration: "none",
-    margin: "0px",
+    margin: "0px 1px",
     display: "inline-flex",
     top: "4px"
   },

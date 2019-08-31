@@ -5,7 +5,7 @@ import {
 
 const cardStyle = {
   card: {
-    margin: "120px 15px 60px",
+    margin: "0px 15px 60px",
     borderRadius: "6px",
     position: "relative",
     display: "flex",
@@ -15,11 +15,13 @@ const cardStyle = {
     fontSize: ".875rem",
     transition: "all 300ms linear",
     color: onSurfaceColor,
-    paddingBottom: "15px",
+    paddingTop: "60px",
+    paddingBottom: "20px",
     ...elevation01
   },
   cardParallax: {
     margin: "-60px 15px 15px !important",
+    paddingTop: "0px !important",
   },
   cardPlain: {
     background: "transparent",

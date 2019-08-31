@@ -12,7 +12,7 @@ export const CHANNEL_BROADCAST = 'CHANNEL_BROADCAST';
 
 export const USER_FETCH_SUCCESS = 'USER_FETCH_SUCCESS';
 
-export function historyPush(path) {
+export function pushHistory(path) {
   return dispatch => { dispatch(push(path)) };
 }
 

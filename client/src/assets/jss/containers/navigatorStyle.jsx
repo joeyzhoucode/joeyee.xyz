@@ -15,14 +15,13 @@ const navigatorStyle = {
     padding: "0.325rem 0",
     marginBottom: "20px",
     width: "100%",
-    backgroundColor: "transparent !important",
+    ...elevation04,
     color: onBackgroundColor,
     transition: "all 150ms ease 0s",
     alignItems: "center",
     flexFlow: "row nowrap",
     justifyContent: "flex-start",
     position: "fixed",
-    zIndex: "4",
     boxShadow: "none !important",
   },
   container: {
@@ -50,17 +49,6 @@ const navigatorStyle = {
   },
   appResponsive: {
     margin: "20px 10px"
-  },
-  transparent: {
-    paddingTop: "25px",
-    color: onBackgroundColor,
-    backgroundColor: "transparent !important",
-    boxShadow: "none !important",
-  },
-  dark: {
-    color: onBackgroundColor + " !important",
-    backgroundColor: elevation04.backgroundColor + " !important",
-    boxShadow: elevation04.boxShadow + "!important",
   },
   drawerPaper: {
     color: onBackgroundColor,

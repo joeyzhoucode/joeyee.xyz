@@ -5,8 +5,22 @@ import {
   elevation04,
 } from "assets/jss/globalStyles.jsx";
 
-const mobileNavigationStyle = {
+const mobileNavigatorStyle = {
   root: {
+    display: "flex",
+    border: "0",
+    padding: "0.325rem 0",
+    width: "100%",
+    transition: "all 150ms ease 0s",
+    flexFlow: "row nowrap",
+    position: "fixed",
+    bottom: "0",
+    color: onBackgroundColor,
+    ...elevation04
+  },
+  animated: {
+    opacity: "0",
+    transform: "translate3d(0, 60px, 0)",
     display: "flex",
     border: "0",
     padding: "0.325rem 0",
@@ -30,4 +44,4 @@ const mobileNavigationStyle = {
   }
 };
 
-export default mobileNavigationStyle;
+export default mobileNavigatorStyle;

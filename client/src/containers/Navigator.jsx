@@ -33,28 +33,7 @@ class Navigator extends React.Component {
 
   handleDrawerToggle = () => { this.setState({ mobileOpen: !this.state.mobileOpen }); }
 
-  headerColorChange = () => {
-    const { classes } = this.props;
-    if (window.pageYOffset > 100) {
-      document.body
-        .getElementsByTagName("header")[0]
-        .classList.remove(classes["transparent"]);
-      document.body
-        .getElementsByTagName("header")[0]
-        .classList.add(classes["dark"]);
-    } else {
-      document.body
-        .getElementsByTagName("header")[0]
-        .classList.add(classes["transparent"]);
-      document.body
-        .getElementsByTagName("header")[0]
-        .classList.remove(classes["dark"]);
-    }
-  }
-
   componentDidMount() {
-    window.addEventListener("scroll", this.headerColorChange);
-
     this.props.fetchUser();
 
     window.addEventListener('beforeinstallprompt', (e) => {
@@ -69,19 +48,17 @@ class Navigator extends React.Component {
     }
   }
 
-  componentWillUnmount() { window.removeEventListener("scroll", this.headerColorChange); }
-
   render() {
     const { classes, children } = this.props;
     const appBarClasses = classNames({
       [classes.appBar]: true,
-      [classes.color]: "transparent"
+      [classes.color]: "dark"
     });
 
     const brandComponent = (
       <Button
         className={ classes.title } 
-        onClick={ () => { this.props.historyPush('/'); }
+        onClick={ () => { this.props.pushHistory('/'); }
       }>
         joeyee.xyz
       </Button>
@@ -124,10 +101,6 @@ class Navigator extends React.Component {
     );
   }
 }
-
-Navigator.defaultProp = {
-  color: "transparent",
-};
 
 Navigator.propTypes = {
   classes: PropTypes.object.isRequired,

@@ -44,7 +44,7 @@ class HeaderLinks extends React.Component {
       <Button
         color="transparent"
         className={classes.navLink}
-        onClick={() => { this.props.historyPush('/home'); }}
+        onClick={() => { this.props.pushHistory('/home'); }}
       >
         <Home className={classes.icons} /> Home
       </Button>
@@ -54,7 +54,7 @@ class HeaderLinks extends React.Component {
       <Button
         color="transparent"
         className={classes.navLink}
-        onClick={() => { this.props.historyPush('/about'); }}
+        onClick={() => { this.props.pushHistory('/about'); }}
       >
         <Person className={classes.icons} /> About Me
       </Button>
@@ -78,7 +78,7 @@ class HeaderLinks extends React.Component {
       <Button
         color="transparent"
         className={classes.navLink}
-        onClick={() => { this.props.historyPush('/app/energee'); }}
+        onClick={() => { this.props.pushHistory('/app/energee'); }}
       >
         <OfflineBoltOutlined className={classes.icons} /> Energee App
       </Button>
