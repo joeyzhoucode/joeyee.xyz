@@ -295,7 +295,7 @@ class SectionNavbars extends React.Component {
                       href="#pablo"
                       className={classes.notificationNavLink}
                       onClick={e => e.preventDefault()}
-                      color="rose"
+                      color="error"
                     >
                       <Email className={classes.icons} />
                     </Button>
@@ -357,48 +357,10 @@ class SectionNavbars extends React.Component {
                       href="#pablo"
                       className={classes.registerNavLink}
                       onClick={e => e.preventDefault()}
-                      color="rose"
+                      color="error"
                       round
                     >
                       Register
-                    </Button>
-                  </ListItem>
-                </List>
-              }
-            />
-            <Header
-              brand="Transparent"
-              color="transparent"
-              rightLinks={
-                <List className={classes.list}>
-                  <ListItem className={classes.listItem}>
-                    <Button
-                      color="transparent"
-                      className={
-                        classes.navLink + " " + classes.socialIconsButton
-                      }
-                    >
-                      Twitter
-                    </Button>
-                  </ListItem>
-                  <ListItem className={classes.listItem}>
-                    <Button
-                      color="transparent"
-                      className={
-                        classes.navLink + " " + classes.socialIconsButton
-                      }
-                    >
-                      Facebook
-                    </Button>
-                  </ListItem>
-                  <ListItem className={classes.listItem}>
-                    <Button
-                      color="transparent"
-                      className={
-                        classes.navLink + " " + classes.socialIconsButton
-                      }
-                    >
-                      Instagram
                     </Button>
                   </ListItem>
                 </List>

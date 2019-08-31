@@ -128,11 +128,10 @@ class SectionBasics extends React.Component {
               <GridItem xs={12} sm={12} md={8}>
                 <Button>Default</Button>
                 <Button color="primary">Primary</Button>
-                <Button color="info">Info</Button>
-                <Button color="success">Success</Button>
-                <Button color="warning">Warning</Button>
-                <Button color="danger">Danger</Button>
-                <Button color="rose">Rose</Button>
+                <Button color="primaryVariant">Primary Variant</Button>
+                <Button color="secondary">Secondary</Button>
+                <Button color="secondaryVariant">Secondary Variant</Button>
+                <Button color="error">Error</Button>
               </GridItem>
             </GridContainer>
           </div>

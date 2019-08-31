@@ -10,7 +10,7 @@ import { LocationOn, List, Schedule, BarChart, FiberManualRecord } from "@materi
 import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
 import CardAnimated from "components/Card/CardAnimated.jsx";
-import MobileNavigator from "containers/App/MobileNavigator.jsx";
+import AppNavigator from "containers/App/AppNavigator.jsx";
 
 import withStyles from "@material-ui/core/styles/withStyles";
 import energeeStyle from "assets/jss/material-kit-react/containers/energeePage.jsx";
@@ -128,7 +128,7 @@ class Energee extends React.Component {
 
     return (
       <div>
-        <MobileNavigator
+        <AppNavigator
           root={"/app/energee"}
           actions={[
             {

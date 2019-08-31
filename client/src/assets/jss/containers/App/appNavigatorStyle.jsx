@@ -5,7 +5,7 @@ import {
   elevation04,
 } from "assets/jss/globalStyles.jsx";
 
-const mobileNavigatorStyle = {
+const appNavigatorStyle = {
   root: {
     display: "flex",
     border: "0",
@@ -44,4 +44,4 @@ const mobileNavigatorStyle = {
   }
 };
 
-export default mobileNavigatorStyle;
+export default appNavigatorStyle;

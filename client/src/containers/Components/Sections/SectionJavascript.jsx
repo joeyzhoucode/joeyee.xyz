@@ -141,7 +141,7 @@ class SectionJavascript extends React.Component {
                       </Button>
                       <Button
                         onClick={() => this.handleClose("classicModal")}
-                        color="danger"
+                        color="error"
                         simple
                       >
                         Close

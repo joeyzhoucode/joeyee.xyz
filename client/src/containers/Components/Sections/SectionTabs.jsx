@@ -87,7 +87,7 @@ class SectionTabs extends React.Component {
                 </h3>
                 <CustomTabs
                   plainTabs
-                  headerColor="danger"
+                  headerColor="primary"
                   tabs={[
                     {
                       tabName: "Home",

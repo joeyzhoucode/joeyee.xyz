@@ -10,7 +10,7 @@ import Button from "@material-ui/core/Button";
 
 // core components
 
-import buttonStyle from "assets/jss/material-kit-react/components/buttonStyle.jsx";
+import buttonStyle from "assets/jss/components/buttonStyle.jsx";
 
 const makeComponentStyles = makeStyles(() => ({
   ...buttonStyle
@@ -57,16 +57,11 @@ const RegularButton = React.forwardRef((props, ref) => {
 RegularButton.propTypes = {
   color: PropTypes.oneOf([
     "primary",
-    "info",
-    "success",
-    "warning",
-    "danger",
-    "rose",
+    "primaryVariant",
+    "secondary",
+    "secondaryVariant",
+    "error",
     "white",
-    "facebook",
-    "twitter",
-    "google",
-    "github",
     "transparent"
   ]),
   size: PropTypes.oneOf(["sm", "lg"]),

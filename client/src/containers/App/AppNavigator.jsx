@@ -9,9 +9,9 @@ import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 
 import withStyles from "@material-ui/core/styles/withStyles";
-import mobileNavigatorStyle from "assets/jss/containers/App/mobileNavigatorStyle.jsx";
+import appNavigatorStyle from "assets/jss/containers/App/appNavigatorStyle.jsx";
 
-class MobileNavigator extends React.Component {
+class AppNavigator extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -69,12 +69,12 @@ class MobileNavigator extends React.Component {
   }
 }
 
-MobileNavigator.defaultProps = {
+AppNavigator.defaultProps = {
   active: 0,
   animatedStyle: null
 };
 
-MobileNavigator.propTypes = {
+AppNavigator.propTypes = {
   actions: PropTypes.arrayOf(
     PropTypes.shape({
       icon: PropTypes.object,
@@ -94,4 +94,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(navigatorActions, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(mobileNavigatorStyle)(MobileNavigator));
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(appNavigatorStyle)(AppNavigator));

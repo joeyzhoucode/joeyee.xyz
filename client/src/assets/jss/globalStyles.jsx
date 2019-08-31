@@ -132,8 +132,8 @@ const elevation24 = {
 };
 
 const primaryCardHeader = {
-  color: "#fff",
-  background: "linear-gradient(60deg, #ab47bc, #8e24aa)",
+  color: onPrimaryColor,
+  background: "linear-gradient(60deg, " + primary100 + ", " + primary300 + ")",
 };
 
 const cardHeader = {
