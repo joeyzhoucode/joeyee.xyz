@@ -49,8 +49,6 @@ class HeaderLinks extends React.Component {
     const AuthenticationLink = (
       <Button
         color="transparent"
-        target="_blank"
-        rel="noopener"
         className={classes.navLink}
         href={ userId ? "/logout" : "/login" }
       >
