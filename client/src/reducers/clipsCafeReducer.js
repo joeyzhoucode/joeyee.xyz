@@ -1,6 +1,5 @@
 import { initialState } from './rootReducer';
 import webSocketConnection from "utils/webSocketConnection";
-import { COMMAND_TYPE } from 'utils/webSocketConnection';
 import {
   PLAYER_MOUNT,
   PLAYER_COMMAND_FETCH_SUCCESS,
@@ -23,9 +22,6 @@ export default function clipsCafe(state = initialState.clipsCafe, action) {
       }
       return newState;
     case PLAYER_COMMAND_FETCH_SUCCESS:
-      if(action.data.payload_type !== COMMAND_TYPE) {
-        return state;
-      }
       videoId = action.data.video_id || state.player.props.url;
       videoSeek = action.data.seek_seconds || 0;
       videoState = 0;
@@ -37,8 +33,9 @@ export default function clipsCafe(state = initialState.clipsCafe, action) {
       newState.player.seekTo(videoSeek);
       return newState;
     case PLAYER_SUBSCRIBE:
-      const connection = state.connection || new webSocketConnection(action.viewerId, action.callback, COMMAND_TYPE);
-      connection.openNewTheatre(action.theatreCode);
+      const connection = state.connection ||
+        new webSocketConnection("ClipsCafe", action.connectionType, action.callback);
+      connection.openNewGroup(state.groupName);
       newState = {
         ...state,
         connection: connection,
@@ -55,9 +52,6 @@ export default function clipsCafe(state = initialState.clipsCafe, action) {
       }
       return newState;
     case PLAYER_COMMAND_RECIEVE:
-      if(action.data.payload_type !== COMMAND_TYPE) {
-        return state;
-      }
       videoId = action.data.video_id || state.player.props.url;
       videoSeek = action.data.seek_seconds || 0;
       videoState = action.data.state || 0;
@@ -74,7 +68,11 @@ export default function clipsCafe(state = initialState.clipsCafe, action) {
       videoId = action.data.videoId || state.player.props.url;
       videoSeek = state.player.getCurrentTime() || 0.0;
       videoState = action.data.videoState || 0;
-      state.connection.command(videoId, videoSeek, videoState, action.data.theatreCode);
+      state.connection.broadcast({
+        videoId: videoId,
+        videoSeek: videoSeek,
+        videoState: videoState
+      }, state.groupName);
       return state;
     default:
       return state;

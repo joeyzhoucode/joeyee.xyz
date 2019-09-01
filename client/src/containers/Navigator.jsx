@@ -44,7 +44,7 @@ class Navigator extends React.Component {
   componentDidUpdate() {
     const userId = this.props.user.id;
     if(userId && !this.props.connection) {
-      this.props.subscribeChannel(userId, "Global", data => { console.log(data); });
+      // this.props.subscribeChannel(userId, "Global", data => { console.log(data); });
     }
   }
 

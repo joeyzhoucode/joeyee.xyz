@@ -5,18 +5,15 @@ const BASE_URL = window.location.hostname === "localhost" ? "localhost:3001" : w
 const ACCESS_TOKEN = "accessToken";
 const CLIENT_ID = "client";
 
-export const MESSAGE_TYPE = "MESSAGE";
-export const COMMAND_TYPE = "COMMAND";
-
-function webSocketConnection(userId, callback, connectionType) {
+function webSocketConnection(appName, connectionType, callback) {
   let accessToken = localStorage.getItem(ACCESS_TOKEN);
   let clientId = localStorage.getItem(CLIENT_ID);
 
   let wsUrl = PROTOCOL + BASE_URL + '/cable';
   wsUrl += '?access-token=' + accessToken + '&client-id=' + clientId;
 
-  this.userId = userId;
   this.callback = callback;
+  this.appName = appName;
   this.connectionType = connectionType;
 
   this.connection = ActionCable.createConsumer(wsUrl);
@@ -26,7 +23,7 @@ function webSocketConnection(userId, callback, connectionType) {
 webSocketConnection.prototype.message = function(content, groupName) {
   let groupConnObj = this.webSocketConnections[groupName];
   if (groupConnObj) {
-    groupConnObj.broadcastMessage(content);
+    groupConnObj.broadcast(content);
   } else {
     console.log('Error: Cannot find group connection');
   }
@@ -48,30 +45,23 @@ webSocketConnection.prototype.disconnect = function() {
 
 webSocketConnection.prototype.createWebSocketConnection = function(groupName) {
   let scope = this;
-  let connectionType;
-  switch(scope.connectionType) {
-    case MESSAGE_TYPE:
-      connectionType = "Messenger";
-      break;
-    case COMMAND_TYPE:
-      COMMAND_TYPE = "Command";
-      break;
-    default:
-      connectionType = undefined;
-  }
-  return this.connection.subscriptions.create({channel: connectionType + 'Channel', group_name: groupName, user_id: scope.userId}, {
+  return this.connection.subscriptions.create({
+    channel: scope.appName + "Channel",
+    group_name: groupName,
+    connection_type: scope.connectionType
+  }, {
     connected: function() {
-      console.log(connectionType + ' connected to channel. Group Name: ' + groupName + '.')
+      console.log('Connected to ' + scope.appName + '. Group Name: ' + groupName + '. Connection Type: ' + scope.connectionType + '.');
     },
     disconnected: function() {
-      console.log(connectionType +  ' disconnected from channel. Group Name: ' + groupName + '.')
+      console.log('Disconnected from ' + scope.appName + '. Group Name: ' + groupName + '. Connection Type: ' + scope.connectionType + '.');
     },
     received: function(data) {
       if (data.audience.indexOf(scope.userId) !== -1) {
         return scope.callback(data)
       }
     },
-    broadcastMessage: function(content) {
+    broadcast: function(content) {
       return this.perform('broadcast', {
         group_name: groupName,
         user_id: scope.userId,

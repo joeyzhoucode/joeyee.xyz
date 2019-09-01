@@ -16,7 +16,14 @@ import gymLabStyle from "assets/jss/material-kit-react/containers/gymLabPage.jsx
 
 class ClipsCafe extends React.Component {
   componentDidMount() {
+    const { subscribePlayer, mountPlayer, recievePlayerCommand } = this.props.clipsCafeActions;
+    subscribePlayer(recievePlayerCommand);
+    mountPlayer(this.player);
+    //fetchPlayerCommand("Global");
+  }
 
+  componentWillUnmount() {
+    this.props.clipsCafeActions.unsubscribePlayer();
   }
 
   render() {
@@ -30,9 +37,9 @@ class ClipsCafe extends React.Component {
           volume={1}
           playing={clipsCafe.videoState === 1}
           controls={true}
-          // onPlay={() => { clipsCafe.broadcastPlayerCommand({ videoState: 1, theatreCode: this.props.path }) }}
-          // onPause={() => { clipsCafe.broadcastPlayerCommand({ videoState: 0, theatreCode: this.props.path }) }}
-          // ref={(player) => { this.player = player } }
+          onPlay={() => { clipsCafeActions.broadcastPlayerCommand({ videoState: 1 }) }}
+          onPause={() => { clipsCafeActions.broadcastPlayerCommand({ videoState: 0 }) }}
+          ref={(player) => { this.player = player } }
         />
         <GridContainer className={classes.container}>
           <GridItem xs={12} sm={12} md={12} lg={12}>

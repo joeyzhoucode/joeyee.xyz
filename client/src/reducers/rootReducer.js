@@ -48,6 +48,7 @@ export const initialState = {
     videoState: 0,
     connection: null,
     player: null,
+    groupName: "Global"
   }
 };
 

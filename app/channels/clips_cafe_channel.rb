@@ -1,7 +1,7 @@
-class MessengerChannel < ApplicationCable::Channel
+class ClipsCafeChannel < ApplicationCable::Channel
   def subscribed
-    if params[:group_name].present?
-      stream_from("#{(params[:group_name])}")
+    if valid_stream?(params)
+      stream_from(build_stream_id(params))
     end
   end
 
@@ -32,5 +32,15 @@ class MessengerChannel < ApplicationCable::Channel
 
   def get_group(name)
     Group.find_by(name: name)
+  end
+
+  def valid_stream?(params)
+    params[:app_name].present? &&
+    params[:group_name].present? &&
+    params[:connection_type].present?
+  end
+
+  def build_stream_id(params)
+    "#{params[:app_name]}-#{params[:group_name]}:#{params[:connection_type]}"
   end
 end

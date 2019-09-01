@@ -6,21 +6,27 @@ export const PLAYER_COMMAND_FETCH_SUCCESS = 'PLAYER_COMMAND_FETCH_SUCCESS';
 export const PLAYER_COMMAND_RECIEVE = 'PLAYER_COMMAND_RECIEVE';
 export const PLAYER_COMMAND_BROADCAST = 'PLAYER_COMMAND_BROADCAST';
 
+const PLAYER_TYPE = 'PLAYER_TYPE';
+
 export function mountPlayer(player) {
   return { type: PLAYER_MOUNT, player: player };
 }
 
-export function subscribePlayer(viewerId, theatreCode, callback) {
-  return { type: PLAYER_SUBSCRIBE, viewerId: viewerId, theatreCode: theatreCode, callback: callback };
+export function subscribePlayer(callback) {
+  return {
+    type: PLAYER_SUBSCRIBE,
+    connectionType: PLAYER_TYPE,
+    callback: callback
+  };
 }
 
 export function unsubscribePlayer() {
   return { type: PLAYER_UNSUBSCRIBE };
 }
 
-export function fetchPlayerCommand(theatreCode) {
+export function fetchPlayerCommand(groupName) {
   return dispatch => {
-    return fetch('/api/commands/' + theatreCode, {
+    return fetch('/api/clipsCafe/' + groupName, {
       method: 'GET',
       mode: 'cors',
       credientials: 'include',
