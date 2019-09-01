@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import { connectRouter } from 'connected-react-router';
 import navigator from 'reducers/navigatorReducer';
-import energee from 'reducers/energeeReducer';
+import gymLab from 'reducers/gymLabReducer';
 
 export const initialState = {
   navigator: {
@@ -15,7 +15,7 @@ export const initialState = {
       image: null,
     },
   },
-  energee: {
+  gymLab: {
     gyms: {
       list: [],
       selected: 0,
@@ -47,5 +47,5 @@ export const initialState = {
 export default(history) => combineReducers({
   router: connectRouter(history),
   navigator,
-  energee,
+  gymLab,
 })

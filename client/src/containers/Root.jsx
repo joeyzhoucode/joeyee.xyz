@@ -10,7 +10,8 @@ import Login from "containers/Login.jsx";
 import Components from "containers/Components/Components.jsx";
 import Home from "containers/Home.jsx";
 
-import Energee from "containers/App/Energee.jsx";
+import ClipsCafe from "containers/App/ClipsCafe.jsx";
+import GymLab from "containers/App/GymLab.jsx";
 
 class Root extends React.Component {
   render() {
@@ -25,7 +26,8 @@ class Root extends React.Component {
               <Route path="/logout" component={Login} />
               <Route path="/components" component={Components} />
               <Route path="/app">
-                <Route path="/app/energee" component={Energee} />
+                <Route path="/app/clipsCafe" component={ClipsCafe} />
+                <Route path="/app/gymLab" component={GymLab} />
               </Route>
               <Route component={Home} />
             </Switch>

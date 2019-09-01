@@ -12,7 +12,8 @@ import {
   Lock,
   LockOpen,
   CloudDownload,
-  OfflineBoltOutlined 
+  OfflineBoltOutlined,
+  AirplayOutlined
 } from "@material-ui/icons";
 
 import Button from "components/CustomButtons/Button.jsx";
@@ -73,13 +74,23 @@ class HeaderLinks extends React.Component {
       </Button> 
     ): null;
 
-    const EnergeeLink = (
+    const GymLabLink = (
       <Button
         color="transparent"
         className={classes.navLink}
-        onClick={() => { this.props.pushHistory('/app/energee'); }}
+        onClick={() => { this.props.pushHistory('/app/gymLab'); }}
       >
-        <OfflineBoltOutlined className={classes.icons} /> Energee App
+        <OfflineBoltOutlined className={classes.icons} /> GymLab
+      </Button>
+    );
+
+    const ClipsCafeLink = (
+      <Button
+        color="transparent"
+        className={classes.navLink}
+        onClick={() => { this.props.pushHistory('/app/clipsCafe'); }}
+      >
+        <AirplayOutlined className={classes.icons} /> ClipsCafe
       </Button>
     );
 
@@ -92,7 +103,10 @@ class HeaderLinks extends React.Component {
           {AboutLink}
         </ListItem>
         <ListItem className={classes.listItem}>
-          {EnergeeLink}
+          {GymLabLink}
+        </ListItem>
+        <ListItem className={classes.listItem}>
+          {ClipsCafeLink}
         </ListItem>
         <ListItem className={classes.listItem}>
           {AuthenticationLink}

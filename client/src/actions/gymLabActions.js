@@ -4,7 +4,7 @@ export const PROGRAM_SELECT = 'PROGRAM_SELECT';
 
 export function gymsFetch(lat, lon) {
   return dispatch => {
-    return fetch('/api/energee/gyms?lat=' + lat + '&lon=' + lon, {
+    return fetch('/api/gymLab/gyms?lat=' + lat + '&lon=' + lon, {
       method: 'GET',
       mode: 'cors',
       credientials: 'include',

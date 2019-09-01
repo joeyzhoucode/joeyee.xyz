@@ -1,7 +1,7 @@
 import { initialState } from './rootReducer';
-import { GYMS_FETCH_CALLBACK, GYM_SELECT, PROGRAM_SELECT } from '../actions/energeeActions';
+import { GYMS_FETCH_CALLBACK, GYM_SELECT, PROGRAM_SELECT } from '../actions/gymLabActions';
 
-export default function energee(state = initialState.energee, action) {
+export default function gymLab(state = initialState.gymLab, action) {
   let newState;
   switch(action.type) {
     case GYMS_FETCH_CALLBACK:

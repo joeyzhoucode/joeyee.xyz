@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class EnergeeControllerTest < ActionDispatch::IntegrationTest
+class GymLabControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

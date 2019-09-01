@@ -1,6 +1,6 @@
 import { container, primaryColor } from "assets/jss/globalStyles.jsx";
 
-const energeeStyle = {
+const gymLabStyle = {
   container,
   brand: {
     color: "#FFFFFF",
@@ -46,4 +46,4 @@ const energeeStyle = {
   },
 };
 
-export default energeeStyle;
+export default gymLabStyle;

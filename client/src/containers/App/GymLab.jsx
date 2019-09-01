@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as navigatorActions from "actions/navigatorActions";
-import * as energeeActions from "actions/energeeActions";
+import * as gymLabActions from "actions/gymLabActions";
 import { FormControlLabel, Radio } from '@material-ui/core';
 import { LocationOn, List, Schedule, BarChart, FiberManualRecord } from "@material-ui/icons";
 
@@ -13,12 +13,12 @@ import CardAnimated from "components/Card/CardAnimated.jsx";
 import AppNavigator from "containers/App/AppNavigator.jsx";
 
 import withStyles from "@material-ui/core/styles/withStyles";
-import energeeStyle from "assets/jss/material-kit-react/containers/energeePage.jsx";
+import gymLabStyle from "assets/jss/material-kit-react/containers/gymLabPage.jsx";
 
-class Energee extends React.Component {
+class GymLab extends React.Component {
   componentDidMount() {
     const geoSuccess = (pos) => {
-      this.props.energeeActions.gymsFetch(pos.coords.latitude, pos.coords.longitude);
+      this.props.gymLabActions.gymsFetch(pos.coords.latitude, pos.coords.longitude);
     }
     const geoError = (err) => {
       console.log(err.message);
@@ -42,22 +42,22 @@ class Energee extends React.Component {
             Placeholder
           </GridItem>
           <GridItem xs={12} sm={12} md={6} lg={6}>
-            {Object.keys(this.props.energee.gyms.list).map((gym, index) => {
+            {Object.keys(this.props.gymLab.gyms.list).map((gym, index) => {
               return (
                 <div className={classes.stackedRadio} key={gym}>
                   <FormControlLabel
                     control={
                       <Radio
-                        checked={index === this.props.energee.gyms.selected}
-                        onClick={(_e) => this.props.energeeActions.gymSelect(index)}
+                        checked={index === this.props.gymLab.gyms.selected}
+                        onClick={(_e) => this.props.gymLabActions.gymSelect(index)}
                         value={gym}
                         name={gym}
                         aria-label={gym}
                         icon={<FiberManualRecord />}
                         checkedIcon={<FiberManualRecord className={classes.radioChecked} />}
                         disabled={
-                          this.props.energee.gyms.list[gym].opening_hours &&
-                          !this.props.energee.gyms.list[gym].opening_hours.open_now
+                          this.props.gymLab.gyms.list[gym].opening_hours &&
+                          !this.props.gymLab.gyms.list[gym].opening_hours.open_now
                         }
                       />
                     }
@@ -81,14 +81,14 @@ class Energee extends React.Component {
             Placeholder
           </GridItem>
           <GridItem xs={12} sm={12} md={6} lg={6}>
-            {this.props.energee.programs.list.map((program, index) => {
+            {this.props.gymLab.programs.list.map((program, index) => {
               return (
                 <div className={classes.stackedRadio} key={program.name}>
                   <FormControlLabel
                     control={
                       <Radio
-                        checked={index === this.props.energee.programs.selected}
-                        onClick={(_e) => this.props.energeeActions.programSelect(index)}
+                        checked={index === this.props.gymLab.programs.selected}
+                        onClick={(_e) => this.props.gymLabActions.programSelect(index)}
                         value={program.name}
                         name={program.name}
                         aria-label={program.name}
@@ -129,7 +129,7 @@ class Energee extends React.Component {
     return (
       <div>
         <AppNavigator
-          root={"/app/energee"}
+          root={"/app/gymLab"}
           actions={[
             {
               icon: LocationOn,
@@ -162,7 +162,7 @@ class Energee extends React.Component {
   }
 }
 
-Energee.propTypes = {
+GymLab.propTypes = {
   classes: PropTypes.object
 };
 
@@ -170,14 +170,14 @@ function mapStateToProps(state) {
   return {
     router: state.router,
     navigator: state.navigator,
-    energee: state.energee,
+    gymLab: state.gymLab,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
     navigatorActions: bindActionCreators(navigatorActions, dispatch),
-    energeeActions: bindActionCreators(energeeActions, dispatch),
+    gymLabActions: bindActionCreators(gymLabActions, dispatch),
   }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(energeeStyle)(Energee));
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(gymLabStyle)(GymLab));
