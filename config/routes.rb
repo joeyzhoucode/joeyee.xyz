@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   scope '/api' do
     get 'user', to: 'users#show'
     get 'groups/new', to: 'groups#new'
-    get 'gymLab/gyms', to: 'gymLab_app#gyms'
+    get 'gymLab/gyms', to: 'gym_lab_app#gyms'
     resources :groups
     resources :users
     resources :messages

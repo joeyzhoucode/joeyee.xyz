@@ -17,39 +17,27 @@ import gymLabStyle from "assets/jss/material-kit-react/containers/gymLabPage.jsx
 
 class ClipsCafe extends React.Component {
   componentDidMount() {
-    const geoSuccess = (pos) => {
-      this.props.gymLabActions.gymsFetch(pos.coords.latitude, pos.coords.longitude);
-    }
-    const geoError = (err) => {
-      console.log(err.message);
-    }
-    navigator.geolocation.getCurrentPosition(geoSuccess, geoError, {
-      enableHighAccuracy: true,
-      timeout: 5000,
-      maximumAge: 0,
-    });
+
   }
 
   render() {
     const { classes } = this.props;
     const watchTab = () => (
       <CardAnimated>
+        <ReactPlayer
+          url={'https://www.youtube.com/watch?v=pQV0WEdT_OE'}
+          width='100%'
+          height='480px'
+          volume={1}
+          // playing={this.props.player.videoState === "play"}
+          controls={true}
+          // onPlay={() => { this.props.playerBroadcast({ videoState: "play", theatreCode: this.props.path }) }}
+          // onPause={() => { this.props.playerBroadcast({ videoState: "pause", theatreCode: this.props.path }) }}
+          // ref={(player) => { this.player = player } }
+        />
         <GridContainer className={classes.container}>
           <GridItem xs={12} sm={12} md={12} lg={12}>
             <h3 className={classes.subtitle}>ClipsCafe</h3>
-          </GridItem>
-          <GridItem xs={12} sm={12} md={12} lg={12}>
-            <ReactPlayer
-              url={'https://www.youtube.com/watch?v=pQV0WEdT_OE'}
-              width='100%'
-              height='720px'
-              volume={1}
-              // playing={this.props.player.videoState === "play"}
-              controls={true}
-              // onPlay={() => { this.props.playerBroadcast({ videoState: "play", theatreCode: this.props.path }) }}
-              // onPause={() => { this.props.playerBroadcast({ videoState: "pause", theatreCode: this.props.path }) }}
-              // ref={(player) => { this.player = player } }
-            />
           </GridItem>
         </GridContainer>
       </CardAnimated>
