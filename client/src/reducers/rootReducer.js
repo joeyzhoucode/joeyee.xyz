@@ -2,6 +2,7 @@ import { combineReducers } from 'redux';
 import { connectRouter } from 'connected-react-router';
 import navigator from 'reducers/navigatorReducer';
 import gymLab from 'reducers/gymLabReducer';
+import clipsCafe from 'reducers/clipsCafeReducer';
 
 export const initialState = {
   navigator: {
@@ -42,10 +43,17 @@ export const initialState = {
       selected: 0,
     }
   },
+  clipsCafe: {
+    videoId: "https://www.youtube.com/watch?v=pQV0WEdT_OE",
+    videoState: 0,
+    connection: null,
+    player: null,
+  }
 };
 
 export default(history) => combineReducers({
   router: connectRouter(history),
   navigator,
   gymLab,
+  clipsCafe
 })

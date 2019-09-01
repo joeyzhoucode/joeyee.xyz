@@ -2,8 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import * as navigatorActions from "actions/navigatorActions";
-import * as gymLabActions from "actions/gymLabActions";
+import * as clipsCafeActions from "actions/clipsCafeActions";
 import ReactPlayer from 'react-player';
 
 import GridContainer from "components/Grid/GridContainer.jsx";
@@ -21,7 +20,7 @@ class ClipsCafe extends React.Component {
   }
 
   render() {
-    const { classes } = this.props;
+    const { classes, clipsCafe, clipsCafeActions } = this.props;
     const watchTab = () => (
       <CardAnimated>
         <ReactPlayer
@@ -29,10 +28,10 @@ class ClipsCafe extends React.Component {
           width='100%'
           height='480px'
           volume={1}
-          // playing={this.props.player.videoState === "play"}
+          playing={clipsCafe.videoState === 1}
           controls={true}
-          // onPlay={() => { this.props.playerBroadcast({ videoState: "play", theatreCode: this.props.path }) }}
-          // onPause={() => { this.props.playerBroadcast({ videoState: "pause", theatreCode: this.props.path }) }}
+          // onPlay={() => { clipsCafe.broadcastPlayerCommand({ videoState: 1, theatreCode: this.props.path }) }}
+          // onPause={() => { clipsCafe.broadcastPlayerCommand({ videoState: 0, theatreCode: this.props.path }) }}
           // ref={(player) => { this.player = player } }
         />
         <GridContainer className={classes.container}>
@@ -84,15 +83,13 @@ ClipsCafe.propTypes = {
 function mapStateToProps(state) {
   return {
     router: state.router,
-    navigator: state.navigator,
-    gymLab: state.gymLab,
+    clipsCafe: state.clipsCafe,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    navigatorActions: bindActionCreators(navigatorActions, dispatch),
-    gymLabActions: bindActionCreators(gymLabActions, dispatch),
+    clipsCafeActions: bindActionCreators(clipsCafeActions, dispatch),
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(withStyles(gymLabStyle)(ClipsCafe));

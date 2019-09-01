@@ -6,6 +6,7 @@ const ACCESS_TOKEN = "accessToken";
 const CLIENT_ID = "client";
 
 export const MESSAGE_TYPE = "MESSAGE";
+export const COMMAND_TYPE = "COMMAND";
 
 function webSocketConnection(userId, callback, connectionType) {
   let accessToken = localStorage.getItem(ACCESS_TOKEN);
@@ -51,6 +52,9 @@ webSocketConnection.prototype.createWebSocketConnection = function(groupName) {
   switch(scope.connectionType) {
     case MESSAGE_TYPE:
       connectionType = "Messenger";
+      break;
+    case COMMAND_TYPE:
+      COMMAND_TYPE = "Command";
       break;
     default:
       connectionType = undefined;
